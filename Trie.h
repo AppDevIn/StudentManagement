@@ -43,6 +43,12 @@ public:
     bool search(string key);
     
     int get(string key);
+
+    void remove(string key);
+    
+    bool isEmpty(TrieNode* node);
+
+    TrieNode* removeR(TrieNode* node, string key, int depth);
 };
 
 
