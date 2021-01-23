@@ -15,6 +15,7 @@ private:
         // isEndOfWord is true if the node represents 
         // end of a word 
         bool isEndOfWord; 
+        int value;
     }; 
     struct TrieNode *getNode(void){
         TrieNode *pNode =  new TrieNode; 
@@ -37,9 +38,11 @@ public:
         // Returns new trie node (initialized to NULLs) 
     
 
-    void insert(string key);
+    void insert(string key, int value);
 
     bool search(string key);
+    
+    int get(string key);
 };
 
 
