@@ -35,6 +35,7 @@ void Trie::insert(string key, int value){
     }
 
     node->value = value;
+    node->key = key;
 
     //Set the last node as end 
     node->isEndOfWord = true;
@@ -80,9 +81,8 @@ bool Trie::search(string key){
         //Get the value of single lower case charcter 
         int index = key[i] - 'a';
 
-        // if the char in the node is false getNode
         if(!node->children[index])
-            node->children[index] = getNode();
+            return false;
         
         //set temp root the next node 
         node = node->children[index];
@@ -150,6 +150,54 @@ Trie::TrieNode* Trie::removeR(TrieNode* node, string key, int depth){
 
 
 }
+
+void Trie::startsWith(TrieNode* node, list<string>* words){
+
+
+    if(node->isEndOfWord){
+        words->push_back(node->key);
+    }
+
+    for (int i = 0; i < ALPHABET_SIZE; i++) 
+    {
+        if(node->children[i]){
+            startsWith(node->children[i], words);
+            
+        }
+    }
+    
+
+
+}
+
+
+void Trie::startsWith(string prefix){
+
+    list<string> words;
+
+    //temp store the root value 
+    TrieNode* node = root;
+
+    //iteatate through each char of the key
+    for (int i = 0; i < prefix.length(); i++)
+    {
+        //Get the value of single lower case charcter 
+        int index = prefix[i] - 'a';
+
+        //set temp root the next node 
+        node = node->children[index];
+
+    }
+
+    startsWith(node, &words);
+
+    cout << words.front() << endl;
+
+    
+
+}
+
+
 
 
 

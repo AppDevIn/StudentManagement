@@ -1,4 +1,5 @@
 #include<string>
+#include <list>
 
 using namespace std; 
   
@@ -16,19 +17,25 @@ private:
         // end of a word 
         bool isEndOfWord; 
         int value;
+        string key;
     }; 
     struct TrieNode *getNode(void){
         TrieNode *pNode =  new TrieNode; 
   
         pNode->isEndOfWord = false; 
     
-        for (int i = 0; i < ALPHABET_SIZE; i++) 
+        for (int i = 0; i < ALPHABET_SIZE; i++){
             pNode->children[i] = NULL; 
+        }
     
         return pNode; 
     }
 
     TrieNode *root;
+    
+    TrieNode* removeR(TrieNode* node, string key, int depth);
+
+    void startsWith(TrieNode* node, list<string>* words);
 
 public:
     Trie(/* args */);
@@ -48,7 +55,8 @@ public:
     
     bool isEmpty(TrieNode* node);
 
-    TrieNode* removeR(TrieNode* node, string key, int depth);
+
+    void startsWith(string prefix);
 };
 
 

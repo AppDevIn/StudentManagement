@@ -12,6 +12,8 @@ int main(int argc, char const *argv[]){
 
     t.insert("jeya", 10);
     t.insert("runlin", 20);
+    t.insert("runny", 20);
+    t.insert("run", 20);
     t.insert("zac", 200);
     t.search("jeya")? cout << "Yes\n" : 
                          cout << "No\n"; 
@@ -23,6 +25,8 @@ int main(int argc, char const *argv[]){
 
     t.search("jeya")? cout << "Yes\n" : 
                         cout << "No\n"; 
+
+    t.startsWith("ru");
     
 
     return 0;
