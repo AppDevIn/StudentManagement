@@ -39,7 +39,7 @@ public:
 
     void insert(string key);
 
-    bool search(struct TrieNode *root, string key);
+    bool search(string key);
 };
 
 
