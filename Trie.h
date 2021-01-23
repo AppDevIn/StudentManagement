@@ -4,18 +4,43 @@ using namespace std;
   
 const int ALPHABET_SIZE = 26; 
 
-struct TrieNode 
-{ 
-    struct TrieNode *children[ALPHABET_SIZE]; 
+
+class Trie
+{
+private:
+    struct TrieNode 
+    { 
+        struct TrieNode *children[ALPHABET_SIZE]; 
+    
+        // isEndOfWord is true if the node represents 
+        // end of a word 
+        bool isEndOfWord; 
+    }; 
+    struct TrieNode *getNode(void){
+        TrieNode *pNode =  new TrieNode; 
   
-    // isEndOfWord is true if the node represents 
-    // end of a word 
-    bool isEndOfWord; 
-}; 
+        pNode->isEndOfWord = false; 
+    
+        for (int i = 0; i < ALPHABET_SIZE; i++) 
+            pNode->children[i] = NULL; 
+    
+        return pNode; 
+    }
 
-// Returns new trie node (initialized to NULLs) 
-struct TrieNode *getNode(void);
+    TrieNode *root;
 
-void insert(struct TrieNode *root, string key);
+public:
+    Trie(/* args */);
 
-bool search(struct TrieNode *root, string key) 
+    ~Trie();
+
+        // Returns new trie node (initialized to NULLs) 
+    
+
+    void insert(string key);
+
+    bool search(struct TrieNode *root, string key);
+};
+
+
+
