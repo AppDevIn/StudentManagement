@@ -16,7 +16,7 @@ Trie::~Trie(){
 }
 
 int Trie::getIndex(char c){
-    return isalpha(c) ? c - ('a' - 10) : c - '0';
+    return isalpha(c) ? tolower(c) - ('a' - 10) : c - '0';
 }
 
 void Trie::insert(string key, string value){
@@ -197,7 +197,12 @@ void Trie::startsWith(string prefix){
 
     startsWith(node, &words);
 
-    cout << words.front() << endl;
+    list <string> :: iterator it; 
+
+    cout << "\nStudent ID: " << endl;
+
+    for(it = words.begin(); it != words.end(); ++it) 
+        cout << *it << endl; 
 
     
 

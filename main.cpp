@@ -19,6 +19,8 @@ int main(int argc, char const *argv[])
 
     int pick = 1;
 
+    trie.insert("10192836C", "Jeya");
+    trie.insert("10192836J", "Jeyavishnu");
 
     cout << "Welcome to Student Management System" << endl;
 
@@ -63,10 +65,16 @@ void menuSelection(int pick)
             trie.insert(id, name);
             break;
         case 2:
+            cout << "Enter student ID: "; cin >> id;
+            trie.remove(id);
             break;
         case 3:
             cout << "Enter student ID: "; cin >> id;
             cout << trie.get(id) << endl;
+            break;
+        case 4:
+            cout << "Enter prefix student ID: "; cin >> id;
+            trie.startsWith(id);
             break;
         default:
             cout << "Sorry, please choose a valid option.";
