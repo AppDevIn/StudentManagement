@@ -3,7 +3,7 @@
 
 using namespace std; 
   
-const int ALPHABET_SIZE = 26; 
+const int ALPHABET_SIZE = 36; 
 
 
 class Trie
@@ -16,8 +16,12 @@ private:
         // isEndOfWord is true if the node represents 
         // end of a word 
         bool isEndOfWord; 
-        int value;
+        string value;
         string key;
+
+        TrieNode(){
+            bool isEndOfWord = false; 
+        }
     }; 
     struct TrieNode *getNode(void){
         TrieNode *pNode =  new TrieNode; 
@@ -43,13 +47,13 @@ public:
     ~Trie();
 
         // Returns new trie node (initialized to NULLs) 
-    
+    int getIndex(char c);
 
-    void insert(string key, int value);
+    void insert(string key, string value);
 
     bool search(string key);
     
-    int get(string key);
+    string get(string key);
 
     void remove(string key);
     

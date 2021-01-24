@@ -4,6 +4,9 @@
 
 using namespace std;
 
+Trie trie;
+
+
 void menu();
 void menuSelection(int pick);
 void insertStudent(string name, string studentID);
@@ -15,6 +18,7 @@ int main(int argc, char const *argv[])
 {
 
     int pick = 1;
+
 
     cout << "Welcome to Student Management System" << endl;
 
@@ -44,16 +48,27 @@ void menu()
 
 void menuSelection(int pick)
 {
+
+    string id, name;
+    
     switch (pick)
     {
-    case 0:
-        exit(0);
-        break;
-    case 1:
-        break;
-    case 2:
-        break;
-    default:
-        cout << "Sorry, please choose a valid option.";
+        case 0:
+            exit(0);
+            break;
+        case 1:
+            cout << "Enter student ID: "; cin >> id;
+            cout << "Enter Name: "; cin >> name;
+
+            trie.insert(id, name);
+            break;
+        case 2:
+            break;
+        case 3:
+            cout << "Enter student ID: "; cin >> id;
+            cout << trie.get(id) << endl;
+            break;
+        default:
+            cout << "Sorry, please choose a valid option.";
     }
 }

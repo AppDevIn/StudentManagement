@@ -1,4 +1,6 @@
 #include<string>
+#include <stdio.h>
+#include <ctype.h>
 #include "Trie.h"
 
 using namespace std; 
@@ -13,7 +15,11 @@ Trie::Trie(){
 Trie::~Trie(){
 }
 
-void Trie::insert(string key, int value){
+int Trie::getIndex(char c){
+    return isalpha(c) ? c - ('a' - 10) : c - '0';
+}
+
+void Trie::insert(string key, string value){
 
 
     //temp store the root value 
@@ -23,7 +29,7 @@ void Trie::insert(string key, int value){
     for (int i = 0; i < key.length(); i++)
     {
         //Get the value of single lower case charcter 
-        int index = key[i] - 'a';
+        int index = getIndex(key[i]);
 
         // if the char in the node is false getNode
         if(!node->children[index])
@@ -43,7 +49,7 @@ void Trie::insert(string key, int value){
 
 }
 
-int Trie::get(string key){
+string Trie::get(string key){
     
     //temp store the root value 
     TrieNode* node = root;
@@ -52,7 +58,7 @@ int Trie::get(string key){
     for (int i = 0; i < key.length(); i++)
     {
         //Get the value of single lower case charcter 
-        int index = key[i] - 'a';
+        int index = getIndex(key[i]);;
 
         // if the char in the node is false getNode
         if(!node->children[index])
@@ -64,7 +70,7 @@ int Trie::get(string key){
     }
 
 
-    return (node != NULL && node->isEndOfWord) ? node->value : 0;
+    return (node != NULL && node->isEndOfWord) ? node->value : "No value";
 
 
 }
@@ -79,7 +85,7 @@ bool Trie::search(string key){
     for (int i = 0; i < key.length(); i++)
     {
         //Get the value of single lower case charcter 
-        int index = key[i] - 'a';
+        int index = getIndex(key[i]);;
 
         if(!node->children[index])
             return false;
@@ -135,7 +141,7 @@ Trie::TrieNode* Trie::removeR(TrieNode* node, string key, int depth){
 
 
     //Get the value of single lower case charcter 
-    int index = key[depth] - 'a';
+    int index = getIndex(key[depth]);
     node->children[index] = removeR(node->children[index], key, depth + 1);
 
     // If it doesn't have any child and is not the end a word
@@ -182,7 +188,7 @@ void Trie::startsWith(string prefix){
     for (int i = 0; i < prefix.length(); i++)
     {
         //Get the value of single lower case charcter 
-        int index = prefix[i] - 'a';
+        int index = getIndex(prefix[i]);;
 
         //set temp root the next node 
         node = node->children[index];
