@@ -1,12 +1,12 @@
 #pragma once
-
-#include<string>
-#include<iostream>
+#include "Student.cpp"
+#include <string>
+#include <iostream>
 using namespace std;
 
 const int MAX_SIZE = 101;
 typedef string KeyType;
-typedef string ItemType;
+typedef Student ItemType;
 
 
 class Dictionary
@@ -15,7 +15,7 @@ private:
 	struct Node
 	{
 		KeyType	 key;   // search key
-		ItemType item;	// data item
+		ItemType item;// data item
 		Node     *next;	// pointer pointing to next item with same search key
 	};
 
@@ -36,7 +36,7 @@ public:
 	// pre : none
 	// post: new item is added to the Dictionary
 	//       size of Dictionary is increased by 1
-	bool add(KeyType newKey, ItemType newItem);
+	bool add(KeyType newKey, ItemType student);
 
 	// remove an item with the specified key in the Dictionary
 	// pre : key must exist in the Dictionary // post: item is removed from the Dictionary

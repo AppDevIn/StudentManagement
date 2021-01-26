@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "Trie.h"
+#include <iostream>
 
 using namespace std; 
 
@@ -197,12 +198,11 @@ void Trie::startsWith(string prefix){
 
     startsWith(node, &words);
 
-    list <string> :: iterator it; 
-
+    list <string> :: iterator it;
     cout << "\nStudent ID: " << endl;
 
     for(it = words.begin(); it != words.end(); ++it) 
-        cout << *it << endl; 
+        cout << *it << endl;
 
     
 

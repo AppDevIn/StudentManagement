@@ -1,4 +1,5 @@
 #include "Dictionary.h"
+#include <iostream>
 
 
 Dictionary::Dictionary(){
@@ -46,98 +47,63 @@ Dictionary::~Dictionary(){
 
 }
 
-int charvalue(char c)
-{
-	if (isalpha(c))
-	{
-		if (isupper(c))
-			return (int)c - (int) 'A';
-		else
-			return (int)c - (int) 'a' + 26;
-	}
-	else
-		return -1;
-}
-
 int Dictionary::hash(KeyType key){
-    int total = charvalue(key[0]);
-
-	for (int i = 1; i < key.length(); i++)
-	{
-		if (charvalue(key[i]) < 0)  // not an alphabet
-			continue;
-		total = total * 52 + charvalue(key[i]);
-	    
-        total %= MAX_SIZE;
-    }
-
-
-    return total;
-}
-
-
-bool Dictionary::add(KeyType newKey, ItemType newItem){
-    // Compute the index using hash function
-    int hashValue = hash(newKey);
-
-    //Get the node from the items 
-    Node* node = items[hashValue];
-
-    //Create a new node
-    Node* newNode = new Node;
-
-    //Set Items and keys into the newNode
-    newNode->item = newItem;
-    newNode->key = newKey;
-    newNode->next = NULL;
-
-
-    // Check if thee if item in the node is empty
-    if(!node){
-        //Set list at index to point to new node 
-        items[hashValue] = newNode;
-
-    } else {
-        //Check if the first node key is the smae 
-        if(node->key == newNode->key){
-            return false;
-        } else { 
-
-            //Trasverse throught the linked list
-            while(node->next){
-                //Assign it to the next node to node 
-                node = node->next;
-                //Check if the node has the same key 
-                if(node->key == newNode->key){
-                    return false;
-                }
+    int total = 0;
+    for(char x : key){
+        if (isalpha(x)) {
+            if (isupper(x)) {
+                total += (int)x - (int)'A';
+            }
+            else{
+                total += (int)x - (int)'a' + 26;
             }
         }
-            
-
-        //Set the next to the new node 
-        node->next = newNode;
+        else{
+            total += -1;
+        }
     }
-    
-    // Increase the size by 1
-    size++;
-
-    // Return true  
-    return true;
-
+    return total % MAX_SIZE;
 }
 
-ItemType Dictionary::get(KeyType key){    
+bool Dictionary::add(KeyType newKey, ItemType newItem){
+    
+    int index = hash(newKey);
+    Node* temp = new Node;
+    temp -> item = newItem;
+    temp -> next = NULL;
+    temp -> key = newKey;
+
+    
+    if(items[index] == NULL){
+        items[index] = temp;
+    }
+    else{
+        if(temp -> key == items[index] -> key){
+            return false;
+        }
+        else{
+            while (temp -> next != NULL) {
+                items[index] = items[index] -> next;
+            }
+        }
+        items[index] -> next = temp;
+        
+    }
+    size++;
+    return true;
+}
+
+ItemType Dictionary::get(KeyType key){
 
     ItemType item;
 
     //Get the hash value for the key
     int hashValue = hash(key);
 
-    //Get the item based on the hashvalue 
-    Node* node = items[hashValue]; 
+    //Get the item based on the hashvalue
+    Node* node = items[hashValue];
 
-    //Check if the first item is not empty     
+    //Check if the first item is not empty
     if(node){
         Node* current = node;
         //Trasverse through the node the find the key
@@ -211,11 +177,15 @@ void Dictionary::print(){
     for (int i = 0; i < MAX_SIZE ; i++)
     {
         Node* node = items[i];
-        if(node){
-            cout << node->key << " :" << node->item << endl;    
-
+        if(node != NULL){
+//            cout << node->key << " :" << node -> item << endl;
+            Student temp = node -> item;
+            cout << node -> key << " : " << temp.name << " " << temp.email << " "
+            << temp.address << " " << temp.gpa << " " << temp.tGroup << endl;
+            
             while(node->next){
-                cout << node->next->key << " :" << node->next->item << endl;    
+//                cout << node->next->key << " :" << node -> next -> item << endl;
+                cout << node -> key << " : " << node -> next -> item.name << endl;
                 node = node->next;
             }
         }
@@ -223,6 +193,9 @@ void Dictionary::print(){
     }
 
 }
+
+
+
 
 
 bool Dictionary::isEmpty(){ return bool(size); }
