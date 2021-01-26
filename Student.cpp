@@ -2,8 +2,9 @@
 #include <string>
 using namespace std;
 
-class Student {
-public:
+struct Student {
+
+    string id;
     string name;
     string address;
     string email;

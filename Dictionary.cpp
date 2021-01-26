@@ -1,5 +1,6 @@
 #include "Dictionary.h"
 #include <iostream>
+#include <regex>
 
 
 Dictionary::Dictionary(){
@@ -57,6 +58,9 @@ int Dictionary::hash(KeyType key){
             else{
                 total += (int)x - (int)'a' + 26;
             }
+        }
+        else if(isnumber(x)){
+            total += x;
         }
         else{
             total += -1;
@@ -119,7 +123,72 @@ ItemType Dictionary::get(KeyType key){
 
     return item;
 
+}
 
+//void PrintMatches(string str, regex reg){
+//
+//    // This holds the first match
+//    sregex_iterator currentMatch(str.begin(),
+//            str.end(), reg);
+//
+//    // Used to determine if there are any more matches
+//    sregex_iterator lastMatch;
+//
+//    // While the current match doesn't equal the last
+//    while(currentMatch != lastMatch){
+//        smatch match = *currentMatch;
+//        cout << match.str() << "\n";
+//        currentMatch++;
+//    }
+//}
+
+
+void Dictionary::getByPrefix(KeyType key){
+    
+    string temp = "";
+    // create the string of all the ID
+    for (int i = 0; i < MAX_SIZE; i++) {
+        Node* node = items[i];
+        if (node != NULL) {
+            
+            temp += node -> item.id + " ";
+            
+            while(node->next){
+                node = node->next;
+            }
+        }
+    }
+    
+    // regex expression
+    regex reg ("(" + key + "([^ ]+)?)");
+    
+    // This holds the first match
+    sregex_iterator currentMatch(temp.begin(),
+            temp.end(), reg);
+    
+    // Used to determine if there are any more matches
+    sregex_iterator lastMatch;
+
+    while(currentMatch != lastMatch){
+        Student tempStudent;
+        smatch match = *currentMatch;
+        tempStudent = get(match.str());
+        cout << tempStudent.id << " " << tempStudent.name << endl;
+        currentMatch++;
+    }
+    
+}
+
+void Dictionary::updateGPA(KeyType key, double newGPA, int numOfSem){
+    
+    int index = hash(key);
+    double accGPA;
+    
+    Node* node = items[index];
+    if (node) {
+        accGPA = (node -> item.gpa + newGPA) / numOfSem;
+        node -> item.gpa = accGPA;
+    }
 }
 
 void Dictionary::remove(KeyType key){
@@ -178,6 +247,7 @@ void Dictionary::print(){
     {
         Node* node = items[i];
         if(node != NULL){
+         
 //            cout << node->key << " :" << node -> item << endl;
             Student temp = node -> item;
             cout << node -> key << " : " << temp.name << " " << temp.email << " "

@@ -49,6 +49,9 @@ public:
 	// post: none
 	// return the item with the specified key from the Dictionary
 	ItemType get(KeyType key);
+    
+    void getByPrefix(KeyType key);
+    void updateGPA(KeyType key, double newGPA, int numOfSem);
 
 	// check if the Dictionary is empty
 	// pre : none

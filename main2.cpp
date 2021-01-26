@@ -1,23 +1,22 @@
 #include <iostream>
 #include <string>
+#include <regex>
 #include "Dictionary.h"
 
 void menu();
 void menuSelection(int option);
 
+Dictionary sys;
 
 int main() {
     
-    Dictionary student;
-    Student temp;
-    temp.name = "asdf";
-    temp.email = "asdf@adgas.com";
-    temp.address = "asdfas";
-    temp.gpa = 2.3;
-    temp.tGroup = "t01";
-    
-    student.add("123x", temp);
-    student.print();
+    int option = 1;
+    while (option != 0) {
+        menu();
+        cin >> option;
+        menuSelection(option);
+        cout << endl;
+    }
     
 }
 
@@ -34,12 +33,12 @@ void menu(){
 
 void menuSelection(int option)
 {
-    string id, name, address, email, tGroup;
-    double gpa;
-//    string details[5] = {name, address, email, to_string(gpa), tGroup};
-    string details[5] = {"name", "address", "email", to_string(2.1), "class"};
-
-    Dictionary sys;
+    
+    Student tempStudent;
+    
+    string tempID;
+    int tempGrade;
+    int numOfSem;
 
     switch (option)
     {
@@ -47,24 +46,47 @@ void menuSelection(int option)
             exit(0);
             break;
         case 1:
-            cout << "Enter student ID: "; cin >> id;
-            cout << "Enter Name: "; cin >> name;
-            cout << "Enter Address: "; cin >> address;
-            cout << "Enter Email: "; cin >> email;
-            cout << "Enter accumulative GPA: "; cin >> gpa;
-            cout << "Enter Class: "; cin >> tGroup;
-            
-            
+            cout << "Enter student ID: "; cin >> tempStudent.id;
+            cout << "Enter Name: "; cin >> tempStudent.name;
+            cout << "Enter Address: "; cin >> tempStudent.address;
+            cout << "Enter Email: "; cin >> tempStudent.email;
+            cout << "Enter accumulative GPA: "; cin >> tempStudent.gpa;
+            cout << "Enter Class: "; cin >> tempStudent.tGroup;
+            sys.add(tempStudent.id, tempStudent);
+            cout << "Stduent: " << tempStudent.name << " added" << endl;
             break;
         case 2:
-            cout << "Enter student ID: "; cin >> id;
+            cout << "Enter student ID to delete: ";
+            cin >> tempID;
+            sys.remove(tempID);
+            sys.print();
             break;
         case 3:
-            cout << "Enter student ID: "; cin >> id;
+            cout << "Enter student ID search: ";
+            cin >> tempID;
+            tempStudent = sys.get(tempID);
+            cout << tempStudent.id << tempStudent.name << endl;
             break;
         case 4:
-            cout << "Enter prefix student ID: "; cin >> id;
+            cout << "Enter prefix student ID: ";
+            cin >> tempID;
+            sys.getByPrefix(tempID);
             break;
+        case 5:
+            cout << "Enter Student ID: ";
+            cin >> tempID;
+            tempStudent = sys.get(tempID);
+            cout << tempStudent.name << " : " << tempStudent.gpa << endl;
+            cout << "Enter Current sem GPA: ";
+            cin >> tempGrade;
+            cout << "Enter number of sem taken: ";
+            cin >> numOfSem;
+            sys.updateGPA(tempID, tempGrade, numOfSem);
+            tempStudent = sys.get(tempID);
+            cout << tempStudent.name << " : " << tempStudent.gpa << endl;
+            break;
+        case 6:
+            sys.print();
         default:
             cout << "Sorry, please choose a valid option.";
     }
