@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <regex>
-#include "Dictionary.h"
+#include "Dictionary.cpp"
 
 void menu();
 void menuSelection(int option);
@@ -9,6 +9,25 @@ void menuSelection(int option);
 Dictionary sys;
 
 int main() {
+
+
+    Student tempStudent;
+
+    tempStudent.id = "123x";
+    tempStudent.name = "Jeya";
+    tempStudent.email = "jeya@gmail.com";
+    tempStudent.tGroup = "t01";
+    tempStudent.gpa = 3.1;
+    
+    sys.add(tempStudent.id, tempStudent);
+
+    tempStudent.id = "132x";
+    tempStudent.name = "runlin";
+    tempStudent.email = "r@gmail.com";
+    tempStudent.tGroup = "t01";
+    tempStudent.gpa = 3.1;
+
+    sys.add(tempStudent.id, tempStudent);
     
     int option = 1;
     while (option != 0) {
@@ -17,6 +36,9 @@ int main() {
         menuSelection(option);
         cout << endl;
     }
+
+    
+
     
 }
 

@@ -151,9 +151,8 @@ void Dictionary::getByPrefix(KeyType key){
         Node* node = items[i];
         if (node != NULL) {
             
-            temp += node -> item.id + " ";
-            
-            while(node->next){
+            while(node){
+                temp += node -> item.id + " ";
                 node = node->next;
             }
         }
