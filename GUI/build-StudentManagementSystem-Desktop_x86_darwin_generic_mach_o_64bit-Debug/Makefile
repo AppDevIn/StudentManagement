@@ -52,10 +52,16 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../StudentManagementSystem/main.cpp \
-		../StudentManagementSystem/mainwindow.cpp moc_mainwindow.cpp
-OBJECTS       = main.o \
+SOURCES       = ../../Trie/Trie.cpp \
+		../StudentManagementSystem/insert.cpp \
+		../StudentManagementSystem/main.cpp \
+		../StudentManagementSystem/mainwindow.cpp moc_insert.cpp \
+		moc_mainwindow.cpp
+OBJECTS       = Trie.o \
+		insert.o \
+		main.o \
 		mainwindow.o \
+		moc_insert.o \
 		moc_mainwindow.o
 DIST          = /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/qdevice.pri \
@@ -205,6 +211,7 @@ DIST          = /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_pre.p
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/qt_config.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_post.prf \
+		../StudentManagementSystem/.qmake.stash \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/toolchain.prf \
@@ -233,7 +240,11 @@ DIST          = /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_pre.p
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/exceptions.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/yacc.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/lex.prf \
-		../StudentManagementSystem/StudentManagementSystem.pro ../StudentManagementSystem/mainwindow.h ../StudentManagementSystem/main.cpp \
+		../StudentManagementSystem/StudentManagementSystem.pro ../../Trie/Trie.h \
+		../StudentManagementSystem/insert.h \
+		../StudentManagementSystem/mainwindow.h ../../Trie/Trie.cpp \
+		../StudentManagementSystem/insert.cpp \
+		../StudentManagementSystem/main.cpp \
 		../StudentManagementSystem/mainwindow.cpp
 QMAKE_TARGET  = StudentManagementSystem
 DESTDIR       = 
@@ -253,7 +264,7 @@ include /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-StudentManagementSystem.app/Contents/MacOS/StudentManagementSystem: ui_mainwindow.h $(OBJECTS)  
+StudentManagementSystem.app/Contents/MacOS/StudentManagementSystem: ui_insert.h ui_mainwindow.h $(OBJECTS)  
 	@test -d StudentManagementSystem.app/Contents/MacOS/ || mkdir -p StudentManagementSystem.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -405,6 +416,7 @@ Makefile: ../StudentManagementSystem/StudentManagementSystem.pro /Users/jeyavish
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/qt_config.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/toolchain.prf \
@@ -586,6 +598,7 @@ Makefile: ../StudentManagementSystem/StudentManagementSystem.pro /Users/jeyavish
 /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/qt_config.prf:
 /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/macx-clang/qmake.conf:
 /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/exclusive_builds.prf:
 /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.prf:
 /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/toolchain.prf:
@@ -648,9 +661,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../StudentManagementSystem/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../StudentManagementSystem/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Trie/Trie.h ../StudentManagementSystem/insert.h ../StudentManagementSystem/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Trie/Trie.cpp ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../StudentManagementSystem/insert.ui ../StudentManagementSystem/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents StudentManagementSystem_en_BI.ts $(DISTDIR)/
 
 
@@ -661,6 +674,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r StudentManagementSystem.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -685,12 +699,20 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o moc_predefs.h /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_insert.cpp moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp
+	-$(DEL_FILE) moc_insert.cpp moc_mainwindow.cpp
+moc_insert.cpp: ../StudentManagementSystem/insert.h \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		moc_predefs.h \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/moc
+	/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/jeyavishnu/personal/Current/StudentManagement/GUI/build-StudentManagementSystem-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/jeyavishnu/personal/Current/StudentManagement/GUI/StudentManagementSystem -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/jeyavishnu/Qt/5.15.2/clang_64/lib ../StudentManagementSystem/insert.h -o moc_insert.cpp
+
 moc_mainwindow.cpp: ../StudentManagementSystem/mainwindow.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../StudentManagementSystem/insert.h \
 		moc_predefs.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/moc
 	/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/jeyavishnu/personal/Current/StudentManagement/GUI/build-StudentManagementSystem-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/jeyavishnu/personal/Current/StudentManagement/GUI/StudentManagementSystem -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/jeyavishnu/Qt/5.15.2/clang_64/lib ../StudentManagementSystem/mainwindow.h -o moc_mainwindow.cpp
@@ -699,9 +721,13 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_insert.h ui_mainwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_insert.h ui_mainwindow.h
+ui_insert.h: ../StudentManagementSystem/insert.ui \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/uic
+	/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/uic ../StudentManagementSystem/insert.ui -o ui_insert.h
+
 ui_mainwindow.h: ../StudentManagementSystem/mainwindow.ui \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/uic
 	/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/uic ../StudentManagementSystem/mainwindow.ui -o ui_mainwindow.h
@@ -718,9 +744,22 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
+Trie.o: ../../Trie/Trie.cpp ../../Trie/Trie.h \
+		../../Dictionary/Dictionary.cpp \
+		../../Dictionary/Dictionary.h \
+		../../Models/Student.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Trie.o ../../Trie/Trie.cpp
+
+insert.o: ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/insert.h \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		ui_insert.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o insert.o ../StudentManagementSystem/insert.cpp
+
 main.o: ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindow.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../StudentManagementSystem/insert.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../StudentManagementSystem/main.cpp
@@ -728,8 +767,12 @@ main.o: ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindo
 mainwindow.o: ../StudentManagementSystem/mainwindow.cpp ../StudentManagementSystem/mainwindow.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../StudentManagementSystem/insert.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../StudentManagementSystem/mainwindow.cpp
+
+moc_insert.o: moc_insert.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_insert.o moc_insert.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
