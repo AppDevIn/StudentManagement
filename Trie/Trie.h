@@ -1,9 +1,15 @@
 #include<string>
 #include <list>
+#include "../Dictionary/Dictionary.cpp"
+// #include "../Models/Student.cpp"
 
 using namespace std; 
   
 const int ALPHABET_SIZE = 36; 
+
+typedef string KeyType;
+typedef Dictionary ValueType;
+// typedef Student ItemType;
 
 
 class Trie
@@ -16,8 +22,10 @@ private:
         // isEndOfWord is true if the node represents 
         // end of a word 
         bool isEndOfWord; 
-        string value;
-        string key;
+        ValueType item;
+        KeyType key;
+
+
 
         TrieNode(){
             bool isEndOfWord = false; 
@@ -37,31 +45,33 @@ private:
 
     TrieNode *root;
     
-    TrieNode* removeR(TrieNode* node, string key, int depth);
+    TrieNode* removeR(TrieNode* node, KeyType key, int depth);
 
     void startsWith(TrieNode* node, list<string>* words);
+    
+    // Returns new trie node (initialized to NULLs) 
+    int getIndex(char c);
+    
+    bool isEmpty(TrieNode* node);
 
 public:
     Trie(/* args */);
 
     ~Trie();
 
-        // Returns new trie node (initialized to NULLs) 
-    int getIndex(char c);
 
-    void insert(string key, string value);
+    void insert(KeyType key, ItemType value);
 
-    string search(string key);
+    string search(KeyType key);
     
-    string get(string key);
+    string get(KeyType key);
 
-    void remove(string key);
+    void remove(KeyType key);
     
-    bool isEmpty(TrieNode* node);
 
-    bool hasKey(string key);
+    bool hasKey(KeyType key);
 
-    list<string> startsWith(string prefix);
+    list<string> startsWith(KeyType prefix);
 };
 
 
