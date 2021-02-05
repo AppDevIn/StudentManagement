@@ -31,6 +31,7 @@ private:
             bool isEndOfWord = false; 
         }
     }; 
+
     struct TrieNode *getNode(void){
         TrieNode *pNode =  new TrieNode; 
   
@@ -42,6 +43,7 @@ private:
     
         return pNode; 
     }
+    
 
     TrieNode *root;
     

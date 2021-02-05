@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
     
     trie.insert(tempStudent.id, tempStudent);
 
-    tempStudent.id = "132x";
+    tempStudent.id = "123x";
     tempStudent.name = "runlin";
     tempStudent.email = "r@gmail.com";
     tempStudent.tGroup = "t01";
@@ -96,7 +96,11 @@ void menuSelection(int pick)
         case 3:
             cout << "Enter student ID: ";
             cin >> id;
-            cout << trie.get(id) << endl;
+            if(trie.hasKey(id)) {
+                cout << trie.get(id) << endl;
+            } else {
+                cout << "You have entered wrong student id" << endl;
+            }
             break;
         case 4:
             cout << "Enter prefix student ID: ";
