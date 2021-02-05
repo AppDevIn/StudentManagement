@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include <regex>
-#include "Dictionary.cpp"
+#include "Dictionary/Dictionary.cpp"
+
 
 void menu();
 void menuSelection(int option);
@@ -36,6 +37,8 @@ int main() {
         menuSelection(option);
         cout << endl;
     }
+
+    return 0;
 
     
 

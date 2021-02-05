@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "User.cpp"
+#include "User.h"
 using namespace std;
 
 class Student: public User {
@@ -8,7 +8,7 @@ class Student: public User {
         double gpa;
         string tGroup;
     
-        Student(): {}
+        Student();
         Student(User& user): User(user.id, user.name, user.address, user.email) {}
         Student(string id, string name, string address, string email, double gpa, string tGroup): User(id, name, address, email), gpa(gpa), tGroup(tGroup) {}
     

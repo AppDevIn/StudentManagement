@@ -19,8 +19,10 @@ void prefixSearchStudent(string prefixID);
 int main(int argc, char const *argv[])
 {
 
-    Student student("10192836C", "Jeya", "Block 750 Woodlands avenue 4", "Jeyavishnu22@gamil.com", 4.0, "P01");
-    Student student("10192836D", "Stain", "Block 750 Woodlands avenue 4", "Jeyavishnu22@gamil.com", 4.0, "P01");
+    Student student01("10192836C", "Jeya", "Block 750 Woodlands avenue 4", "Jeyavishnu22@gamil.com", 4.0, "P01");
+    Student student02("10192836D", "Stain", "Block 750 Woodlands avenue 4", "Jeyavishnu22@gamil.com", 4.0, "P01");
+    User user("10192836D", "Stain", "Block 750 Woodlands avenue 4", "Jeyavishnu22@gamil.com");
+    ((Student)user)
 
     
     int pick = 1;

@@ -9,7 +9,8 @@ class User {
         string name;
         string address;
         string email;
-    
-    User(string id, string name, string address, string email) : id(id), name(name), address(address), email(email) {}
+
+        User();
+        User(string id, string name, string address, string email) : id(id), name(name), address(address), email(email) {}
     
 };
