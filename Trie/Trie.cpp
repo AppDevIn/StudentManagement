@@ -21,7 +21,7 @@ int Trie::getIndex(char c){
     return isalpha(c) ? tolower(c) - ('a' - 10) : c - '0';
 }
 
-void Trie::insert(string key, string value){
+void Trie::insert(string key, ItemType value){
 
 
     //temp store the root value 
@@ -42,7 +42,7 @@ void Trie::insert(string key, string value){
 
     }
 
-    node->value = value;
+    node->item.add(key, value);
     node->key = key;
 
     //Set the last node as end 
@@ -102,7 +102,7 @@ string Trie::get(string key){
     }
 
 
-    return (node != NULL && node->isEndOfWord) ? node->value : "No value";
+    return (node != NULL && node->isEndOfWord) ? node->item.get(key).name : "No value";
 
 
 }
@@ -120,7 +120,7 @@ string Trie::search(string key){
         int index = getIndex(key[i]);;
 
         if(!node->children[index])
-            return false;
+            return NULL;
         
         //set temp root the next node 
         node = node->children[index];
@@ -128,7 +128,7 @@ string Trie::search(string key){
     }
 
 
-    return (node != NULL && node->isEndOfWord) ? node->value : NULL;
+    return (node != NULL && node->isEndOfWord) ? node->item.get(key).name : "No value";
 
 
 }
