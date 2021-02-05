@@ -8,8 +8,8 @@ class Student: public User {
         double gpa;
         string tGroup;
     
-    Student(): {}
-    Student(Usert& user): User(user.id, user.name, user.address, user.email) {}
-    Student(string id, string name, string address, string email, double gpa, string tGroup): User(id, name, address, email), gpa(gpa), tGroup(tGroup) {}
+        Student(): {}
+        Student(User& user): User(user.id, user.name, user.address, user.email) {}
+        Student(string id, string name, string address, string email, double gpa, string tGroup): User(id, name, address, email), gpa(gpa), tGroup(tGroup) {}
     
 };

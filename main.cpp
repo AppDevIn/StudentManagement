@@ -7,7 +7,7 @@
 using namespace std;
 
 Trie studentCollection;
-Trie teacher;
+Trie teacherCollection;
 
 void menu();
 void menuSelection(int pick);
