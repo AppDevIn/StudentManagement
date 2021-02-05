@@ -52,12 +52,14 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../Trie/Trie.cpp \
+SOURCES       = ../../Dictionary/Dictionary.cpp \
+		../../Trie/Trie.cpp \
 		../StudentManagementSystem/insert.cpp \
 		../StudentManagementSystem/main.cpp \
 		../StudentManagementSystem/mainwindow.cpp moc_insert.cpp \
 		moc_mainwindow.cpp
-OBJECTS       = Trie.o \
+OBJECTS       = Dictionary.o \
+		Trie.o \
 		insert.o \
 		main.o \
 		mainwindow.o \
@@ -240,9 +242,11 @@ DIST          = /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_pre.p
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/exceptions.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/yacc.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/lex.prf \
-		../StudentManagementSystem/StudentManagementSystem.pro ../../Trie/Trie.h \
+		../StudentManagementSystem/StudentManagementSystem.pro ../../Dictionary/Dictionary.h \
+		../../Trie/Trie.h \
 		../StudentManagementSystem/insert.h \
-		../StudentManagementSystem/mainwindow.h ../../Trie/Trie.cpp \
+		../StudentManagementSystem/mainwindow.h ../../Dictionary/Dictionary.cpp \
+		../../Trie/Trie.cpp \
 		../StudentManagementSystem/insert.cpp \
 		../StudentManagementSystem/main.cpp \
 		../StudentManagementSystem/mainwindow.cpp
@@ -661,8 +665,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Trie/Trie.h ../StudentManagementSystem/insert.h ../StudentManagementSystem/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Trie/Trie.cpp ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Dictionary/Dictionary.h ../../Trie/Trie.h ../StudentManagementSystem/insert.h ../StudentManagementSystem/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Dictionary/Dictionary.cpp ../../Trie/Trie.cpp ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../StudentManagementSystem/insert.ui ../StudentManagementSystem/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents StudentManagementSystem_en_BI.ts $(DISTDIR)/
 
@@ -744,8 +748,11 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
+Dictionary.o: ../../Dictionary/Dictionary.cpp ../../Dictionary/Dictionary.h \
+		../../Models/Student.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Dictionary.o ../../Dictionary/Dictionary.cpp
+
 Trie.o: ../../Trie/Trie.cpp ../../Trie/Trie.h \
-		../../Dictionary/Dictionary.cpp \
 		../../Dictionary/Dictionary.h \
 		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Trie.o ../../Trie/Trie.cpp
@@ -753,7 +760,11 @@ Trie.o: ../../Trie/Trie.cpp ../../Trie/Trie.h \
 insert.o: ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/insert.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		ui_insert.h
+		ui_insert.h \
+		../StudentManagementSystem/mainwindow.h \
+		../../Trie/Trie.h \
+		../../Dictionary/Dictionary.h \
+		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o insert.o ../StudentManagementSystem/insert.cpp
 
 main.o: ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindow.h \

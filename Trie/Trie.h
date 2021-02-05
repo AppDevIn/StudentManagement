@@ -1,6 +1,6 @@
 #include<string>
 #include <list>
-#include "../Dictionary/Dictionary.cpp"
+#include "../Dictionary/Dictionary.h"
 // #include "../Models/Student.cpp"
 
 using namespace std; 

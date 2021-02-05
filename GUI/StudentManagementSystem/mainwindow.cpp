@@ -17,6 +17,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_insert_clicked()
 {
+
+
     insert = new Insert(this);
     insert->show();
     std::cout << "Insert is clicked" << std::endl;
