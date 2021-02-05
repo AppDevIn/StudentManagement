@@ -1,12 +1,13 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include "Trie.cpp"
-
+#include "Trie/Trie.cpp"
+#include "Models/Student.cpp"
 
 using namespace std;
 
-Trie trie;
+Trie studentCollection;
+Trie teacher;
 
 void menu();
 void menuSelection(int pick);
@@ -18,10 +19,12 @@ void prefixSearchStudent(string prefixID);
 int main(int argc, char const *argv[])
 {
 
+    Student student("10192836C", "Jeya", "Block 750 Woodlands avenue 4", "Jeyavishnu22@gamil.com", 4.0, "P01");
+    Student student("10192836D", "Stain", "Block 750 Woodlands avenue 4", "Jeyavishnu22@gamil.com", 4.0, "P01");
+
+    
     int pick = 1;
 
-    trie.insert("10192836C", "Jeya");
-    trie.insert("10192836J", "Jeyavishnu");
 
     cout << "Welcome to Student Management System" << endl;
 
@@ -69,22 +72,22 @@ void menuSelection(int pick)
         cout << "Enter Name: ";
         cin >> name;
 
-        trie.insert(id, name);
+        studentCollection.insert(id, name);
         break;
     case 2:
         cout << "Enter student ID: ";
         cin >> id;
-        trie.remove(id);
+        studentCollection.remove(id);
         break;
     case 3:
         cout << "Enter student ID: ";
         cin >> id;
-        cout << trie.get(id) << endl;
+        cout << studentCollection.get(id) << endl;
         break;
     case 4:
         cout << "Enter prefix student ID: ";
         cin >> id;
-        words = trie.startsWith(id);
+        words = studentCollection.startsWith(id);
         
         cout << "\nStudent ID: " << endl;
 
