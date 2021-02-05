@@ -122,7 +122,7 @@ string Trie::search(string key){
         int index = getIndex(key[i]);;
 
         if(!node->children[index])
-            return false;
+            return NULL;
         
         //set temp root the next node 
         node = node->children[index];
