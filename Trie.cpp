@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include "Trie.h"
 #include <iostream>
+#include <list>
 
 using namespace std; 
 
@@ -50,6 +51,36 @@ void Trie::insert(string key, string value){
 
 }
 
+bool Trie::hasKey(string key){
+
+
+    //temp store the root value 
+    TrieNode* node = root;
+
+
+        //iteatate through each char of the key
+    for (int i = 0; i < key.length(); i++)
+    {
+        //Get the value of single lower case charcter 
+        int index = getIndex(key[i]);;
+
+        if(!node->children[index])
+            return false;
+        
+        //set temp root the next node 
+        node = node->children[index];
+
+    }
+
+
+    return (node != NULL && node->isEndOfWord);
+
+
+
+
+}
+
+
 string Trie::get(string key){
     
     //temp store the root value 
@@ -76,7 +107,7 @@ string Trie::get(string key){
 
 }
 
-bool Trie::search(string key){
+string Trie::search(string key){
     
     //temp store the root value 
     TrieNode* node = root;
@@ -97,7 +128,7 @@ bool Trie::search(string key){
     }
 
 
-    return (node != NULL && node->isEndOfWord);
+    return (node != NULL && node->isEndOfWord) ? node->value : NULL;
 
 
 }
@@ -178,7 +209,7 @@ void Trie::startsWith(TrieNode* node, list<string>* words){
 }
 
 
-void Trie::startsWith(string prefix){
+list<string> Trie::startsWith(string prefix){
 
     list<string> words;
 
@@ -198,11 +229,7 @@ void Trie::startsWith(string prefix){
 
     startsWith(node, &words);
 
-    list <string> :: iterator it;
-    cout << "\nStudent ID: " << endl;
-
-    for(it = words.begin(); it != words.end(); ++it) 
-        cout << *it << endl;
+    return words;
 
     
 

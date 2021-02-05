@@ -51,7 +51,7 @@ public:
 
     void insert(string key, string value);
 
-    bool search(string key);
+    string search(string key);
     
     string get(string key);
 
@@ -59,8 +59,9 @@ public:
     
     bool isEmpty(TrieNode* node);
 
+    bool hasKey(string key);
 
-    void startsWith(string prefix);
+    list<string> startsWith(string prefix);
 };
 
 
