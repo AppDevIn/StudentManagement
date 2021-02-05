@@ -21,6 +21,7 @@ private slots:
 
 private:
     Ui::Insert *ui;
+
 };
 
 #endif // INSERT_H

@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     ../../Dictionary/Dictionary.cpp \
     ../../Trie/Trie.cpp \
+    globals.cpp \
     insert.cpp \
     main.cpp \
     mainwindow.cpp
@@ -18,6 +19,7 @@ SOURCES += \
 HEADERS += \
     ../../Dictionary/Dictionary.h \
     ../../Trie/Trie.h \
+    globals.h \
     insert.h \
     mainwindow.h
 

@@ -2,15 +2,17 @@
 #include "ui_insert.h"
 #include "mainwindow.h"
 #include <iostream>
-#include "../../Trie/Trie.h"
+#include "globals.h"
 
-Trie trie;
+
+
 
 
 Insert::Insert(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Insert)
 {
+
     ui->setupUi(this);
 }
 
@@ -21,6 +23,9 @@ Insert::~Insert()
 
 void Insert::on_btn_submit_clicked()
 {
+
+    std::cout << MyClass::s_count.get("123x") << std::endl;
+
     QString studentid, name, address, email, tGroup, gpa;
 
     studentid = ui->lineEdit_name->text();
@@ -39,9 +44,13 @@ void Insert::on_btn_submit_clicked()
     item.gpa = gpa.toDouble();
 
 
-    trie.insert(item.id, item);
 
-    std::cout << trie.get(item.id) << std::endl;
+
+    MyClass::s_count.insert(item.id, item);
+
+    std::cout << MyClass::s_count.get(item.id) << std::endl;
+    std::cout << MyClass::s_count.get("123x") << std::endl;
+
 
 
 

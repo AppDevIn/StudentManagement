@@ -54,12 +54,14 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../../Dictionary/Dictionary.cpp \
 		../../Trie/Trie.cpp \
+		../StudentManagementSystem/globals.cpp \
 		../StudentManagementSystem/insert.cpp \
 		../StudentManagementSystem/main.cpp \
 		../StudentManagementSystem/mainwindow.cpp moc_insert.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = Dictionary.o \
 		Trie.o \
+		globals.o \
 		insert.o \
 		main.o \
 		mainwindow.o \
@@ -244,9 +246,11 @@ DIST          = /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_pre.p
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/lex.prf \
 		../StudentManagementSystem/StudentManagementSystem.pro ../../Dictionary/Dictionary.h \
 		../../Trie/Trie.h \
+		../StudentManagementSystem/globals.h \
 		../StudentManagementSystem/insert.h \
 		../StudentManagementSystem/mainwindow.h ../../Dictionary/Dictionary.cpp \
 		../../Trie/Trie.cpp \
+		../StudentManagementSystem/globals.cpp \
 		../StudentManagementSystem/insert.cpp \
 		../StudentManagementSystem/main.cpp \
 		../StudentManagementSystem/mainwindow.cpp
@@ -665,8 +669,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Dictionary/Dictionary.h ../../Trie/Trie.h ../StudentManagementSystem/insert.h ../StudentManagementSystem/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Dictionary/Dictionary.cpp ../../Trie/Trie.cpp ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Dictionary/Dictionary.h ../../Trie/Trie.h ../StudentManagementSystem/globals.h ../StudentManagementSystem/insert.h ../StudentManagementSystem/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Dictionary/Dictionary.cpp ../../Trie/Trie.cpp ../StudentManagementSystem/globals.cpp ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../StudentManagementSystem/insert.ui ../StudentManagementSystem/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents StudentManagementSystem_en_BI.ts $(DISTDIR)/
 
@@ -757,11 +761,18 @@ Trie.o: ../../Trie/Trie.cpp ../../Trie/Trie.h \
 		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Trie.o ../../Trie/Trie.cpp
 
+globals.o: ../StudentManagementSystem/globals.cpp ../StudentManagementSystem/globals.h \
+		../../Trie/Trie.h \
+		../../Dictionary/Dictionary.h \
+		../../Models/Student.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o globals.o ../StudentManagementSystem/globals.cpp
+
 insert.o: ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/insert.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		ui_insert.h \
 		../StudentManagementSystem/mainwindow.h \
+		../StudentManagementSystem/globals.h \
 		../../Trie/Trie.h \
 		../../Dictionary/Dictionary.h \
 		../../Models/Student.cpp
@@ -779,7 +790,11 @@ mainwindow.o: ../StudentManagementSystem/mainwindow.cpp ../StudentManagementSyst
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../StudentManagementSystem/insert.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../StudentManagementSystem/globals.h \
+		../../Trie/Trie.h \
+		../../Dictionary/Dictionary.h \
+		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../StudentManagementSystem/mainwindow.cpp
 
 moc_insert.o: moc_insert.cpp 
