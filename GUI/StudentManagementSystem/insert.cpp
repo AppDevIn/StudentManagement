@@ -28,7 +28,7 @@ void Insert::on_btn_submit_clicked()
 
     QString studentid, name, address, email, tGroup, gpa;
 
-    studentid = ui->lineEdit_name->text();
+    studentid = ui->lineEdit_studentID->text();
     name = ui->lineEdit_name->text();
     address = ui->lineEdit_Address->text();
     email = ui->lineEdit_email->text();

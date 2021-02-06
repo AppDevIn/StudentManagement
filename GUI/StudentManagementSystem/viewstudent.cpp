@@ -24,4 +24,11 @@ void ViewStudent::on_btn_Search_clicked()
     Student student = Constant::trie.get(id);
 
     std::cout << "Information recieved from id " << id << " with name "  <<  student.name << std::endl;
+
+    ui->label_name->setText(QString::fromStdString(student.name));
+    ui->label_email->setText(QString::fromStdString(student.email));
+    ui->label_gpa->setText(QString::number(student.gpa));
+    ui->label_address->setText(QString::fromStdString(student.address));
+    ui->label_class->setText(QString::fromStdString(student.tGroup));
+
 }
