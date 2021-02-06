@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include "Trie.h"
 #include <iostream>
-#include "../LinkedList/List.cpp"
+
 
 using namespace std; 
 
@@ -174,11 +174,11 @@ Trie::TrieNode* Trie::removeR(TrieNode* node, string key, int depth){
 
 }
 
-void Trie::startsWith(TrieNode* node, list<string>* words){
+void Trie::startsWith(TrieNode* node, List* words){
 
 
     if(node->isEndOfWord){
-        words->push_back(node->key);
+        words->add(node->item);
     }
 
     for (int i = 0; i < ALPHABET_SIZE; i++) 
@@ -194,9 +194,9 @@ void Trie::startsWith(TrieNode* node, list<string>* words){
 }
 
 
-list<string> Trie::startsWith(string prefix){
+List Trie::startsWith(string prefix){
 
-    list<string> words;
+    List words;
 
     //temp store the root value 
     TrieNode* node = root;

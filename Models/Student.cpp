@@ -10,4 +10,8 @@ struct Student {
     string email;
     double gpa;
     string tGroup;
+
+    bool operator==(const Student& s){
+        return s.id == this->id;
+    }
 };

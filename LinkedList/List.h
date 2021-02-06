@@ -1,8 +1,9 @@
 #include <iostream>
+#include "../Models/Student.cpp"
 
 using namespace std;
 
-typedef char ItemType;
+typedef Student ValueType;
 
 class List
 
@@ -13,7 +14,7 @@ private:
 
     {
 
-        ItemType item; // item
+        ValueType item; // item
 
         Node *next; // pointer pointing to next node
     };
@@ -22,7 +23,7 @@ private:
 
     Node *front; // pointer pointing to front node
 
-    int rCount(Node *curr, ItemType item);
+    int rCount(Node *curr, ValueType item);
     Node *rReverse(Node *curr);
     Node* getNode();
 
@@ -35,7 +36,7 @@ public:
 
     // 0 <= index < size
 
-    bool add(int index, ItemType item);
+    bool add(int index, ValueType item);
 
     // remove an item at a specified position in the list
 
@@ -47,17 +48,17 @@ public:
 
     // 0 <= index < size
 
-    ItemType get(int index);
+    ValueType* get(int index);
 
     // returns the number of occurrences of item in the list
 
-    int count(ItemType item);
+    int count(ValueType item);
 
     // recursive function that
 
     // returns the number of occurrences of item in the list
 
-    int countR(ItemType item);
+    int countR(ValueType item);
 
     // reverses the list
 
@@ -71,17 +72,19 @@ public:
 
     void display();
 
+    bool add(ValueType item);
+
     int getLength();
 
     void removeDuplicatesfromUnsorted();
     
     void removeDuplicatesfromSorted();
 
-    void deleteAllOccurrences(ItemType item);
+    void deleteAllOccurrences(ValueType item);
 
     void mergeLLAt(List newList, int pos);
 
     void reverseAt(int start, int end);
 
-    ItemType getMiddle();
+    ValueType getMiddle();
 };

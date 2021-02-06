@@ -38,23 +38,29 @@ int main(int argc, const char **argv)
 
 
     Student deleteStudent;
-    deleteStudent.id = "100x";
+    deleteStudent.id = "133x";
     deleteStudent.name = "Run Lin";
     deleteStudent.email = "Run Lin@gmail.com";
     deleteStudent.tGroup = "T01";
     deleteStudent.gpa = 3.1;
 
     //I haven't insert the delete student yet
-    cout << "Test case 06: Delete Student but the id doesn't exist" << deleteStudent.id;
+    cout << "Test case 06: Delete Student but the id doesn't exist " << deleteStudent.id;
     assert(trie.remove(deleteStudent.id) == false);
     cout << ":  Passed!" << endl;
 
     trie.insert(deleteStudent.id, deleteStudent);
-    cout << "Test case 07: Delete ID Student" << deleteStudent.id;
+    cout << "Test case 07: Delete ID Student " << deleteStudent.id;
     assert((trie.remove(deleteStudent.id) == true && trie.get(deleteStudent.id).id == "") == true);
     cout << ":  Passed!" << endl;
 
-    
+
+    trie.insert(deleteStudent.id, deleteStudent);
+    cout << "Test case 08: Prefix search 1";
+    List list = trie.startsWith("1");
+    assert((list.getLength() == 2 && list.get(0)->id == tempStudent.id) == true);
+    cout << ":  Passed!" << endl;
+
 
 
     return 0;

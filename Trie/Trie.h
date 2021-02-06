@@ -1,6 +1,7 @@
 #include<string>
 #include <list>
-#include "../Models/Student.cpp"
+// #include "../Models/Student.cpp"
+#include "../LinkedList/List.cpp"
 
 using namespace std; 
   
@@ -47,7 +48,7 @@ private:
     
     TrieNode* removeR(TrieNode* node, KeyType key, int depth);
 
-    void startsWith(TrieNode* node, list<string>* words);
+    void startsWith(TrieNode* node, List* words);
     
     // Returns new trie node (initialized to NULLs) 
     int getIndex(char c);
@@ -70,7 +71,7 @@ public:
     
     bool hasKey(KeyType key);
 
-    list<string> startsWith(KeyType prefix);
+    List startsWith(KeyType prefix);
 };
 
 
