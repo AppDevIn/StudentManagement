@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "insert.h"
 #include "viewstudent.h"
+#include "search.h"
 
 
 
@@ -26,10 +27,13 @@ private slots:
 
     void on_insert_5_clicked();
 
+    void on_insert_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     Insert *insert;
     ViewStudent *vs;
+    Search *search;
 
 };
 #endif // MAINWINDOW_H

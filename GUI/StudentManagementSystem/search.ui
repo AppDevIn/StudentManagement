@@ -2,8 +2,8 @@
  <author/>
  <comment/>
  <exportmacro/>
- <class>Saerch</class>
- <widget name="Saerch" class="QMainWindow">
+ <class>Search</class>
+ <widget name="Search" class="QMainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>

@@ -42,3 +42,9 @@ void MainWindow::on_insert_5_clicked()
     vs = new ViewStudent(this);
     vs->show();
 }
+
+void MainWindow::on_insert_2_clicked()
+{
+    search = new Search(this);
+    search->show();
+}
