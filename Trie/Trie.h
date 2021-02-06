@@ -1,6 +1,6 @@
 #include<string>
 #include <list>
-#include "../Dictionary/Dictionary.cpp"
+#include "../Dictionary/Dictionary.h"
 // #include "../Models/Student.cpp"
 
 using namespace std; 
@@ -66,7 +66,7 @@ public:
 
     string search(KeyType key);
     
-    string get(KeyType key);
+    ItemType get(KeyType key);
 
     void remove(KeyType key);
     
