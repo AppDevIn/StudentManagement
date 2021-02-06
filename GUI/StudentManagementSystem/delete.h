@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QListWidgetItem>
+#include "ui_delete.h"
 
 namespace Ui {
 class Delete;
@@ -17,9 +18,11 @@ public:
     ~Delete();
 
 private slots:
-    void on_listWidget_itemClicked(QListWidgetItem *item);
-
     void on_lineEdit_textChanged(const QString &arg1);
+
+    void on_tableWidget_itemClicked(QTableWidgetItem *item);
+
+    void on_Delete_2_clicked();
 
 private:
     Ui::Delete *ui;
