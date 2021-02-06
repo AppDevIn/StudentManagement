@@ -1,15 +1,13 @@
 #include<string>
 #include <list>
-#include "../Dictionary/Dictionary.cpp"
-// #include "../Models/Student.cpp"
+#include "../Models/Student.cpp"
 
 using namespace std; 
   
 const int ALPHABET_SIZE = 36; 
 
 typedef string KeyType;
-typedef Dictionary ValueType;
-// typedef Student ItemType;
+typedef Student ItemType;
 
 
 class Trie
@@ -22,7 +20,7 @@ private:
         // isEndOfWord is true if the node represents 
         // end of a word 
         bool isEndOfWord; 
-        ValueType item;
+        ItemType item;
         KeyType key;
 
 
@@ -64,13 +62,12 @@ public:
 
     bool insert(KeyType key, ItemType value);
 
-    string search(KeyType key);
+    // string search(KeyType key);
     
     ItemType get(KeyType key);
 
-    void remove(KeyType key);
+    bool remove(KeyType key);
     
-
     bool hasKey(KeyType key);
 
     list<string> startsWith(KeyType prefix);

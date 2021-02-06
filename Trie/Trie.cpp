@@ -21,17 +21,21 @@ int Trie::getIndex(char c){
     return isalpha(c) ? tolower(c) - ('a' - 10) : c - '0';
 }
 
-bool Trie::insert(string searchKey, ItemType value){
+bool Trie::insert(string key, ItemType value){
 
 
     //temp store the root value 
     TrieNode* node = root;
 
+    if(hasKey(key)){
+        return false;
+    }
+
     //iteatate through each char of the key
-    for (int i = 0; i < searchKey.length(); i++)
+    for (int i = 0; i < key.length(); i++)
     {
         //Get the value of single lower case charcter 
-        int index = getIndex(searchKey[i]);
+        int index = getIndex(key[i]);
 
         // if the char in the node is false getNode
         if(!node->children[index])
@@ -42,18 +46,14 @@ bool Trie::insert(string searchKey, ItemType value){
 
     }
 
+    node->key = key;
+    node->item = value;
+
+    //Set the last node as end 
+    node->isEndOfWord = true;
     //Check if the value is added into the dictionary
-    if (node->item.add(value.id, value)) {
-        node->key = searchKey;
-
-        //Set the last node as end 
-        node->isEndOfWord = true;
-
-        return true;
-    } else {
-        node = NULL;
-        return false;
-    }
+    return true;
+    
 
 
 
@@ -110,36 +110,34 @@ ItemType Trie::get(string key){
     }
 
 
-    return (node != NULL && node->isEndOfWord) ? node->item.get(key) : ItemType();
-
-
+    return (node != NULL && node->isEndOfWord) ? node->item : ItemType();
 }
 
-string Trie::search(string key){
+// string Trie::search(string key){
     
-    //temp store the root value 
-    TrieNode* node = root;
+//     //temp store the root value 
+//     TrieNode* node = root;
 
 
-        //iteatate through each char of the key
-    for (int i = 0; i < key.length(); i++)
-    {
-        //Get the value of single lower case charcter 
-        int index = getIndex(key[i]);;
+//         //iteatate through each char of the key
+//     for (int i = 0; i < key.length(); i++)
+//     {
+//         //Get the value of single lower case charcter 
+//         int index = getIndex(key[i]);;
 
-        if(!node->children[index])
-            return NULL;
+//         if(!node->children[index])
+//             return NULL;
         
-        //set temp root the next node 
-        node = node->children[index];
+//         //set temp root the next node 
+//         node = node->children[index];
 
-    }
-
-
-    return (node != NULL && node->isEndOfWord) ? node->item.get(key).name : "No value";
+//     }
 
 
-}
+//     return (node != NULL && node->isEndOfWord) ? node->item : "No value";
+
+
+// }
 
 // Returns true if root has no children, else false 
 bool Trie::isEmpty(TrieNode* node) 
@@ -150,11 +148,12 @@ bool Trie::isEmpty(TrieNode* node)
     return true; 
 } 
 
-void Trie::remove(string key){
+bool Trie::remove(string key){
     if (hasKey(key)) {
         removeR(root, key, 0);
+        return true;
     } else {
-        return;
+        return false;
     }
 }
 
