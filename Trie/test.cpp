@@ -108,12 +108,6 @@ int main(int argc, const char **argv)
     list = trie.startsWith("976");
     assert(list.getLength() == 0 );
     cout << ":  Passed!" << endl;
-    
-    
-
-
-
-
 
 
 

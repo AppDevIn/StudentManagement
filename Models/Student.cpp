@@ -11,6 +11,13 @@ struct Student {
     double gpa;
     string tGroup;
 
+    void setName(string name){
+
+        name = name;
+
+    }
+    
+
     bool operator==(const Student& s){
         return s.id == this->id;
     }
