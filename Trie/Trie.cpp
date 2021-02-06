@@ -148,7 +148,7 @@ Trie::TrieNode* Trie::removeR(TrieNode* node, string key, int depth){
 
         //If is not a prefix of any other word
         if(isEmpty(node)){
-            delete(node);
+            // delete(node);
             node = NULL;
         }
         
@@ -163,7 +163,7 @@ Trie::TrieNode* Trie::removeR(TrieNode* node, string key, int depth){
 
     // If it doesn't have any child and is not the end a word
    if (isEmpty(node) && node->isEndOfWord == false) { 
-        delete (node); 
+        // delete (node); 
         node = NULL; 
     } 
 
@@ -201,7 +201,7 @@ List Trie::startsWith(string prefix){
     //temp store the root value 
     TrieNode* node = root;
 
-    if(prefix.length() == 0){
+    if(prefix.length() == 0 || !node){
         return words;
     }
 
@@ -214,7 +214,7 @@ List Trie::startsWith(string prefix){
         //set temp root the next node 
         node = node->children[index];
 
-        if(!node){
+        if(node == nullptr){
             return words;
         }
 

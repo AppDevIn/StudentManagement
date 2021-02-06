@@ -158,6 +158,10 @@ void List::begin(){
 }
 
 ValueType List::next(){
+    
+    if (!tempNode){
+        return  ValueType();
+    }
     ValueType v = tempNode->item;
     if(front->next){
         tempNode = tempNode->next;

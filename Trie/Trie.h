@@ -1,7 +1,7 @@
 #include<string>
 #include <list>
 // #include "../Models/Student.cpp"
-#include "../LinkedList/List.cpp"
+#include "../LinkedList/List.h"
 
 using namespace std; 
   

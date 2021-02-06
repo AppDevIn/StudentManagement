@@ -90,13 +90,27 @@ int main(int argc, const char **argv)
     cout << ":  Passed!" << endl;
 
 
- 
-    trie.insert(deleteStudent.id, deleteStudent);
     cout << "Test case 10: Prefix search with no key";
     list = trie.startsWith("");
     assert(list.getLength() == 0 );
     cout << ":  Passed!" << endl;
     
+     
+    cout << "Test case 11: Prefix search with no existing key";
+    list = trie.startsWith("976");
+    assert(list.getLength() == 0 );
+    cout << ":  Passed!" << endl;
+
+         
+    cout << "Test case 12: Prefix search with Empty Node";
+    trie.remove(tempStudent.id);
+    trie.remove(deleteStudent.id);
+    list = trie.startsWith("976");
+    assert(list.getLength() == 0 );
+    cout << ":  Passed!" << endl;
+    
+    
+
 
 
 
