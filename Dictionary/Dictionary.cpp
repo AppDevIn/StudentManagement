@@ -278,7 +278,7 @@ bool Dictionary::hasKey(string key){
         while(current){
             //If you got the key return the item
             if(current->key == key)
-                return true
+                return true;
 
             current = current->next;
         }
