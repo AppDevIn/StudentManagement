@@ -2,10 +2,10 @@
 #define GLOBALS_H
 #include "../../Trie/Trie.h"
 
-class MyClass
+class Constant
 {
     public:
-    static Trie s_count; // declaration
+    static Trie trie; // declaration
 };
 
 #endif // GLOBALS_H

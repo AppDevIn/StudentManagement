@@ -1,5 +1,6 @@
 #include "viewstudent.h"
 #include "ui_viewstudent.h"
+#include "globals.h"
 
 ViewStudent::ViewStudent(QWidget *parent) :
     QMainWindow(parent),

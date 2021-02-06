@@ -26,10 +26,10 @@ void MainWindow::on_insert_clicked()
     tempStudent.tGroup = "t01";
     tempStudent.gpa = 3.1;
 
-    MyClass::s_count.insert("123x", tempStudent);
+    Constant::trie.insert("123x", tempStudent);
 
 
-    std::cout << MyClass::s_count.get("123x") << std::endl;
+    std::cout << Constant::trie.get("123x") << std::endl;
 
     insert = new Insert(this);
     insert->show();

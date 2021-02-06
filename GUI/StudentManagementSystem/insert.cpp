@@ -46,7 +46,7 @@ void Insert::on_btn_submit_clicked()
 
 
 
-    MyClass::s_count.insert(item.id, item);
+    Constant::trie.insert(item.id, item);
 
 
 
