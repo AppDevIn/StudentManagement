@@ -16,6 +16,7 @@ SOURCES += \
     insert.cpp \
     main.cpp \
     mainwindow.cpp \
+    saerch.cpp \
     viewstudent.cpp
 
 HEADERS += \
@@ -25,12 +26,14 @@ HEADERS += \
     globals.h \
     insert.h \
     mainwindow.h \
+    saerch.h \
     viewstudent.h
 
 FORMS += \
     delete.ui \
     insert.ui \
     mainwindow.ui \
+    saerch.ui \
     viewstudent.ui
 
 TRANSLATIONS += \
