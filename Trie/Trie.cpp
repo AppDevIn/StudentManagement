@@ -201,6 +201,10 @@ List Trie::startsWith(string prefix){
     //temp store the root value 
     TrieNode* node = root;
 
+    if(prefix.length() == 0){
+        return words;
+    }
+
     //iteatate through each char of the key
     for (int i = 0; i < prefix.length(); i++)
     {

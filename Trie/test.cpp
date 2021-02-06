@@ -75,7 +75,7 @@ int main(int argc, const char **argv)
 
 
     trie.insert(deleteStudent.id, deleteStudent);
-    cout << "Test case 08: Prefix search 1";
+    cout << "Test case 09: Prefix search 1 with 2 element";
     List list = trie.startsWith("1");
     assert((list.getLength() == 2 && list.get(0)->id == tempStudent.id) == true);
 
@@ -88,6 +88,18 @@ int main(int argc, const char **argv)
         
     }
     cout << ":  Passed!" << endl;
+
+
+ 
+    trie.insert(deleteStudent.id, deleteStudent);
+    cout << "Test case 10: Prefix search with no key";
+    list = trie.startsWith("");
+    assert(list.getLength() == 0 );
+    cout << ":  Passed!" << endl;
+    
+
+
+
 
 
 

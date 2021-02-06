@@ -25,10 +25,13 @@ void Search::on_lineEdit_textChanged(const QString &arg1)
         words.begin();
         for (int i = 0; i < words.getLength(); i++){
 
-            Student s = words.next();
-            string value = "Student Name: " + s.name + "\t ID: " + s.id;
-            QString qstr = QString::fromStdString(value);
-            ui->listWidget->addItem(qstr);
+             Student s = words.next();
+            if(s.id != ""){
+
+                string value = "Student Name: " + s.name + "\t ID: " + s.id;
+                QString qstr = QString::fromStdString(value);
+                ui->listWidget->addItem(qstr);
+            }
         }
 
 

@@ -31,19 +31,20 @@ void Delete::on_listWidget_itemClicked(QListWidgetItem *item)
 void Delete::on_lineEdit_textChanged(const QString &arg1)
 {
 
+    words = Constant::trie.startsWith(arg1.toUtf8().constData());
 
+    ui->listWidget->clear();
 
+    words.begin();
+    for (int i = 0; i < words.getLength(); i++){
 
+         Student s = words.next();
+        if(s.id != ""){
 
-//    words = Constant::trie.startsWith(arg1.toUtf8().constData());
-
-//    ui->listWidget->clear();
-
-//    for (int i = 0; i < words.getLength(); i++){
-
-
-//        QString qstr = QString::fromStdString(words.next()->id);
-//        ui->listWidget->addItem(qstr);
-//    }
+            string value = "Student Name: " + s.name + "\t ID: " + s.id;
+            QString qstr = QString::fromStdString(value);
+            ui->listWidget->addItem(qstr);
+        }
+    }
 
 }
