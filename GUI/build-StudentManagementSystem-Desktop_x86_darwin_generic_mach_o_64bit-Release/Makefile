@@ -227,6 +227,7 @@ DIST          = /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_pre.p
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/qt_config.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_post.prf \
+		../StudentManagementSystem/.qmake.stash \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/toolchain.prf \
@@ -441,6 +442,7 @@ Makefile: ../StudentManagementSystem/StudentManagementSystem.pro /Users/jeyavish
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/qt_config.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/toolchain.prf \
@@ -622,6 +624,7 @@ Makefile: ../StudentManagementSystem/StudentManagementSystem.pro /Users/jeyavish
 /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/qt_config.prf:
 /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/macx-clang/qmake.conf:
 /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/exclusive_builds.prf:
 /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.prf:
 /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/toolchain.prf:
@@ -697,6 +700,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r StudentManagementSystem.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -811,9 +815,9 @@ Dictionary.o: ../../Dictionary/Dictionary.cpp ../../Dictionary/Dictionary.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Dictionary.o ../../Dictionary/Dictionary.cpp
 
 Trie.o: ../../Trie/Trie.cpp ../../Trie/Trie.h \
-		../../Models/Student.cpp \
 		../../LinkedList/List.cpp \
-		../../LinkedList/List.h
+		../../LinkedList/List.h \
+		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Trie.o ../../Trie/Trie.cpp
 
 delete.o: ../StudentManagementSystem/delete.cpp ../StudentManagementSystem/delete.h \
@@ -824,16 +828,16 @@ delete.o: ../StudentManagementSystem/delete.cpp ../StudentManagementSystem/delet
 		ui_delete.h \
 		../StudentManagementSystem/globals.h \
 		../../Trie/Trie.h \
-		../../Models/Student.cpp \
 		../../LinkedList/List.cpp \
-		../../LinkedList/List.h
+		../../LinkedList/List.h \
+		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o delete.o ../StudentManagementSystem/delete.cpp
 
 globals.o: ../StudentManagementSystem/globals.cpp ../StudentManagementSystem/globals.h \
 		../../Trie/Trie.h \
-		../../Models/Student.cpp \
 		../../LinkedList/List.cpp \
-		../../LinkedList/List.h
+		../../LinkedList/List.h \
+		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o globals.o ../StudentManagementSystem/globals.cpp
 
 insert.o: ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/insert.h \
@@ -848,9 +852,9 @@ insert.o: ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/inser
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		../StudentManagementSystem/globals.h \
 		../../Trie/Trie.h \
-		../../Models/Student.cpp \
 		../../LinkedList/List.cpp \
-		../../LinkedList/List.h
+		../../LinkedList/List.h \
+		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o insert.o ../StudentManagementSystem/insert.cpp
 
 main.o: ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindow.h \
@@ -864,9 +868,9 @@ main.o: ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindo
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		../StudentManagementSystem/globals.h \
 		../../Trie/Trie.h \
-		../../Models/Student.cpp \
 		../../LinkedList/List.cpp \
 		../../LinkedList/List.h \
+		../../Models/Student.cpp \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../StudentManagementSystem/main.cpp
@@ -883,9 +887,9 @@ mainwindow.o: ../StudentManagementSystem/mainwindow.cpp ../StudentManagementSyst
 		ui_mainwindow.h \
 		../StudentManagementSystem/globals.h \
 		../../Trie/Trie.h \
-		../../Models/Student.cpp \
 		../../LinkedList/List.cpp \
-		../../LinkedList/List.h
+		../../LinkedList/List.h \
+		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../StudentManagementSystem/mainwindow.cpp
 
 search.o: ../StudentManagementSystem/search.cpp ../StudentManagementSystem/search.h \
@@ -894,9 +898,9 @@ search.o: ../StudentManagementSystem/search.cpp ../StudentManagementSystem/searc
 		ui_search.h \
 		../StudentManagementSystem/globals.h \
 		../../Trie/Trie.h \
-		../../Models/Student.cpp \
 		../../LinkedList/List.cpp \
-		../../LinkedList/List.h
+		../../LinkedList/List.h \
+		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o search.o ../StudentManagementSystem/search.cpp
 
 viewstudent.o: ../StudentManagementSystem/viewstudent.cpp ../StudentManagementSystem/viewstudent.h \
@@ -905,9 +909,9 @@ viewstudent.o: ../StudentManagementSystem/viewstudent.cpp ../StudentManagementSy
 		ui_viewstudent.h \
 		../StudentManagementSystem/globals.h \
 		../../Trie/Trie.h \
-		../../Models/Student.cpp \
 		../../LinkedList/List.cpp \
-		../../LinkedList/List.h
+		../../LinkedList/List.h \
+		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o viewstudent.o ../StudentManagementSystem/viewstudent.cpp
 
 moc_delete.o: moc_delete.cpp 

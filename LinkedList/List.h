@@ -26,6 +26,7 @@ private:
     int rCount(Node *curr, ValueType item);
     Node *rReverse(Node *curr);
     Node* getNode();
+    Node* tempNode;
 
 public:
     //constructor
@@ -72,19 +73,24 @@ public:
 
     void display();
 
-    bool add(ValueType item);
-
     int getLength();
 
-    void removeDuplicatesfromUnsorted();
+    bool add(ValueType item);
+
+    void begin();
+
+    ValueType next();
+
+
+    // void removeDuplicatesfromUnsorted();
     
-    void removeDuplicatesfromSorted();
+    // void removeDuplicatesfromSorted();
 
-    void deleteAllOccurrences(ValueType item);
+    // void deleteAllOccurrences(ValueType item);
 
-    void mergeLLAt(List newList, int pos);
+    // void mergeLLAt(List newList, int pos);
 
-    void reverseAt(int start, int end);
+    // void reverseAt(int start, int end);
 
-    ValueType getMiddle();
+    // ValueType getMiddle();
 };

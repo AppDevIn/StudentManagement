@@ -16,17 +16,18 @@ Search::~Search()
 
 void Search::on_lineEdit_textChanged(const QString &arg1)
 {
-        list<string> words;
-        list<string>::iterator it;
+        List words;
 
         words = Constant::trie.startsWith(arg1.toUtf8().constData());
 
         ui->listWidget->clear();
 
-        for (it = words.begin(); it != words.end(); ++it){
+        words.begin();
+        for (int i = 0; i < words.getLength(); i++){
 
-
-            QString qstr = QString::fromStdString(*it);
+            Student s = words.next();
+            string value = "Student Name: " + s.name + "\t ID: " + s.id;
+            QString qstr = QString::fromStdString(value);
             ui->listWidget->addItem(qstr);
         }
 

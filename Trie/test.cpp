@@ -12,7 +12,7 @@ int main(int argc, const char **argv)
     tempStudent.id = "123x";
     tempStudent.name = "Jeya";
     tempStudent.email = "jeya@gmail.com";
-    tempStudent.tGroup = "t01";
+    tempStudent.tGroup = "T01";
     tempStudent.gpa = 3.1;
 
     cout << "Test case 01: Inserting student with the id " << tempStudent.id;
@@ -55,10 +55,38 @@ int main(int argc, const char **argv)
     cout << ":  Passed!" << endl;
 
 
+
+    
+    cout << "Test case 08: Prefix search 1 with one element";
+    List list1 = trie.startsWith("1");
+    assert((list1.getLength() == 1 && list1.get(0)->id == tempStudent.id) == true);
+
+    list1.begin();
+    for (int i = 0; i < list1.getLength(); i++)
+    {
+        string tGroup = list1.next().tGroup;
+        assert( tGroup == "T01");
+        
+        
+    }
+    cout << ":  Passed!" << endl;
+
+
+
+
     trie.insert(deleteStudent.id, deleteStudent);
     cout << "Test case 08: Prefix search 1";
     List list = trie.startsWith("1");
     assert((list.getLength() == 2 && list.get(0)->id == tempStudent.id) == true);
+
+    list.begin();
+    for (int i = 0; i < list.getLength(); i++)
+    {
+        string tGroup = list.next().tGroup;
+        assert( tGroup == "T01");
+        
+        
+    }
     cout << ":  Passed!" << endl;
 
 

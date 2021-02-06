@@ -2,8 +2,7 @@
 #include "ui_delete.h"
 #include "globals.h"
 
-list<string> words;
-list<string>::iterator it;
+List words;
 
 Delete::Delete(QWidget *parent) :
     QMainWindow(parent),
@@ -20,14 +19,10 @@ Delete::~Delete()
 void Delete::on_listWidget_itemClicked(QListWidgetItem *item)
 {
 
-    std::list<std::string>::iterator it = words.begin();
-    // Advance the iterator by 2 positions,
-    std::advance(it, ui->listWidget->row(item));
-
-    std::cout << "Element = " << *it << std::endl;
+    std::cout << "Element = " << words.get(ui->listWidget->currentRow())->id << std::endl;
 
     //Delete the words
-    Constant::trie.remove(*it);
+    Constant::trie.remove(words.get(ui->listWidget->currentRow())->id);
     ui->listWidget->clear();
 
 
@@ -38,14 +33,17 @@ void Delete::on_lineEdit_textChanged(const QString &arg1)
 
 
 
-    words = Constant::trie.startsWith(arg1.toUtf8().constData());
-
-    ui->listWidget->clear();
-
-    for (it = words.begin(); it != words.end(); ++it){
 
 
-        QString qstr = QString::fromStdString(*it);
-        ui->listWidget->addItem(qstr);
-    }
+//    words = Constant::trie.startsWith(arg1.toUtf8().constData());
+
+//    ui->listWidget->clear();
+
+//    for (int i = 0; i < words.getLength(); i++){
+
+
+//        QString qstr = QString::fromStdString(words.next()->id);
+//        ui->listWidget->addItem(qstr);
+//    }
+
 }

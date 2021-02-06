@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     ../../Dictionary/Dictionary.cpp \
+    ../../LinkedList/List.cpp \
     ../../Trie/Trie.cpp \
     delete.cpp \
     globals.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 
 HEADERS += \
     ../../Dictionary/Dictionary.h \
+    ../../LinkedList/List.h \
     ../../Trie/Trie.h \
     delete.h \
     globals.h \

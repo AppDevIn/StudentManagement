@@ -152,6 +152,24 @@ int List::count(ValueType item)
     return count;
 }
 
+
+void List::begin(){
+    tempNode = front;
+}
+
+ValueType List::next(){
+    ValueType v = tempNode->item;
+    if(front->next){
+        tempNode = tempNode->next;
+        return v;
+    } else if (tempNode){
+        return v;
+    }
+
+    return ValueType();
+    
+}
+
 // int List::countR(ValueType item)
 // {
 
