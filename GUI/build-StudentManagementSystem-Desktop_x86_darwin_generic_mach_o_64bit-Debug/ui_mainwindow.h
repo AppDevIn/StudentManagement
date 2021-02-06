@@ -29,6 +29,7 @@ public:
     QPushButton *insert_2;
     QPushButton *insert_3;
     QPushButton *insert_4;
+    QPushButton *insert_5;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -51,13 +52,16 @@ public:
         insert->setGeometry(QRect(200, 130, 391, 61));
         insert_2 = new QPushButton(centralwidget);
         insert_2->setObjectName(QString::fromUtf8("insert_2"));
-        insert_2->setGeometry(QRect(200, 210, 391, 61));
+        insert_2->setGeometry(QRect(200, 290, 391, 61));
         insert_3 = new QPushButton(centralwidget);
         insert_3->setObjectName(QString::fromUtf8("insert_3"));
-        insert_3->setGeometry(QRect(200, 290, 391, 61));
+        insert_3->setGeometry(QRect(200, 370, 391, 61));
         insert_4 = new QPushButton(centralwidget);
         insert_4->setObjectName(QString::fromUtf8("insert_4"));
-        insert_4->setGeometry(QRect(200, 370, 391, 61));
+        insert_4->setGeometry(QRect(200, 450, 391, 61));
+        insert_5 = new QPushButton(centralwidget);
+        insert_5->setObjectName(QString::fromUtf8("insert_5"));
+        insert_5->setGeometry(QRect(200, 210, 391, 61));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -80,6 +84,7 @@ public:
         insert_2->setText(QCoreApplication::translate("MainWindow", "Search Student", nullptr));
         insert_3->setText(QCoreApplication::translate("MainWindow", "Delete Student", nullptr));
         insert_4->setText(QCoreApplication::translate("MainWindow", "View All Student", nullptr));
+        insert_5->setText(QCoreApplication::translate("MainWindow", "View Student", nullptr));
     } // retranslateUi
 
 };

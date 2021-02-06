@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "insert.h"
+#include "viewstudent.h"
 
 
 
@@ -23,9 +24,12 @@ public:
 private slots:
     void on_insert_clicked();
 
+    void on_insert_5_clicked();
+
 private:
     Ui::MainWindow *ui;
     Insert *insert;
+    ViewStudent *vs;
 
 };
 #endif // MAINWINDOW_H

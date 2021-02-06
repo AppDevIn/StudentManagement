@@ -24,7 +24,7 @@ Insert::~Insert()
 void Insert::on_btn_submit_clicked()
 {
 
-    std::cout << MyClass::s_count.get("123x") << std::endl;
+
 
     QString studentid, name, address, email, tGroup, gpa;
 
@@ -48,8 +48,8 @@ void Insert::on_btn_submit_clicked()
 
     MyClass::s_count.insert(item.id, item);
 
-    std::cout << MyClass::s_count.get(item.id) << std::endl;
-    std::cout << MyClass::s_count.get("123x") << std::endl;
+
+
 
 
 

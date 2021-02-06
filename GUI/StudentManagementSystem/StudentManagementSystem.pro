@@ -11,21 +11,27 @@ CONFIG += c++11
 SOURCES += \
     ../../Dictionary/Dictionary.cpp \
     ../../Trie/Trie.cpp \
+    delete.cpp \
     globals.cpp \
     insert.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    viewstudent.cpp
 
 HEADERS += \
     ../../Dictionary/Dictionary.h \
     ../../Trie/Trie.h \
+    delete.h \
     globals.h \
     insert.h \
-    mainwindow.h
+    mainwindow.h \
+    viewstudent.h
 
 FORMS += \
+    delete.ui \
     insert.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    viewstudent.ui
 
 TRANSLATIONS += \
     StudentManagementSystem_en_BI.ts

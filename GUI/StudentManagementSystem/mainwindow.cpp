@@ -35,3 +35,10 @@ void MainWindow::on_insert_clicked()
     insert->show();
     std::cout << "Insert is clicked" << std::endl;
 }
+
+//View student click
+void MainWindow::on_insert_5_clicked()
+{
+    vs = new ViewStudent(this);
+    vs->show();
+}
