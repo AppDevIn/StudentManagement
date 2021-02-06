@@ -11,9 +11,12 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +25,10 @@ class Ui_Delete
 {
 public:
     QWidget *centralwidget;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QLineEdit *lineEdit;
+    QListWidget *listWidget;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -32,10 +39,26 @@ public:
         Delete->resize(842, 637);
         centralwidget = new QWidget(Delete);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        widget = new QWidget(centralwidget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(140, 60, 551, 381));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        lineEdit = new QLineEdit(widget);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+
+        verticalLayout->addWidget(lineEdit);
+
+        listWidget = new QListWidget(widget);
+        listWidget->setObjectName(QString::fromUtf8("listWidget"));
+
+        verticalLayout->addWidget(listWidget);
+
         Delete->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Delete);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 842, 22));
+        menubar->setGeometry(QRect(0, 0, 842, 24));
         Delete->setMenuBar(menubar);
         statusbar = new QStatusBar(Delete);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

@@ -5,6 +5,7 @@
 #include "insert.h"
 #include "viewstudent.h"
 #include "search.h"
+#include "delete.h"
 
 
 
@@ -29,11 +30,14 @@ private slots:
 
     void on_insert_2_clicked();
 
+    void on_insert_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     Insert *insert;
     ViewStudent *vs;
     Search *search;
+    Delete *d;
 
 };
 #endif // MAINWINDOW_H

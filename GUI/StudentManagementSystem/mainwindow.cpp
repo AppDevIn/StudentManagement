@@ -36,3 +36,9 @@ void MainWindow::on_insert_2_clicked()
     search = new Search(this);
     search->show();
 }
+
+void MainWindow::on_insert_3_clicked()
+{
+    d = new Delete(this);
+    d->show();
+}

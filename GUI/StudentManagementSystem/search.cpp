@@ -30,4 +30,5 @@ void Search::on_lineEdit_textChanged(const QString &arg1)
             ui->listWidget->addItem(qstr);
         }
 
+
 }
