@@ -29,7 +29,7 @@ void MainWindow::on_insert_clicked()
     Constant::trie.insert("123x", tempStudent);
 
 
-    std::cout << Constant::trie.get("123x") << std::endl;
+    std::cout << Constant::trie.get("123x").name << std::endl;
 
     insert = new Insert(this);
     insert->show();

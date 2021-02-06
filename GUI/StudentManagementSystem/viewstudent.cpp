@@ -17,4 +17,11 @@ ViewStudent::~ViewStudent()
 void ViewStudent::on_btn_Search_clicked()
 {
 
+    string id = ui->lineEdit_input->text().toStdString();
+
+    cout << "ID searched: " << id << endl;
+
+    Student student = Constant::trie.get(id);
+
+    std::cout << "Information recieved from id " << id << " with name "  <<  student.name << std::endl;
 }

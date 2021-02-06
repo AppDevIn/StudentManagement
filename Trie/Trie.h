@@ -66,7 +66,7 @@ public:
 
     string search(KeyType key);
     
-    string get(KeyType key);
+    ItemType get(KeyType key);
 
     void remove(KeyType key);
     

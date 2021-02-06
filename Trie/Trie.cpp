@@ -81,7 +81,7 @@ bool Trie::hasKey(string key){
 }
 
 
-string Trie::get(string key){
+ItemType Trie::get(string key){
     
     //temp store the root value 
     TrieNode* node = root;
@@ -102,7 +102,7 @@ string Trie::get(string key){
     }
 
 
-    return (node != NULL && node->isEndOfWord) ? node->item.get(key).name : "No value";
+    return (node != NULL && node->isEndOfWord) ? node->item.get(key) : ItemType();
 
 
 }

@@ -47,6 +47,8 @@ void Insert::on_btn_submit_clicked()
 
 
     Constant::trie.insert(item.id, item);
+    std::cout << "Inserted id " << item.id << " with name: " << Constant::trie.get(item.id).name << std::endl;
+
 
 
 
