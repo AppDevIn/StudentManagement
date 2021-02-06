@@ -151,7 +151,11 @@ bool Trie::isEmpty(TrieNode* node)
 } 
 
 void Trie::remove(string key){
-    removeR(root, key, 0);
+    if (hasKey(key)) {
+        removeR(root, key, 0);
+    } else {
+        return;
+    }
 }
 
 Trie::TrieNode* Trie::removeR(TrieNode* node, string key, int depth){
@@ -228,10 +232,14 @@ list<string> Trie::startsWith(string prefix){
     for (int i = 0; i < prefix.length(); i++)
     {
         //Get the value of single lower case charcter 
-        int index = getIndex(prefix[i]);;
+        int index = getIndex(prefix[i]);
 
         //set temp root the next node 
         node = node->children[index];
+
+        if(!node){
+            return words;
+        }
 
     }
 
