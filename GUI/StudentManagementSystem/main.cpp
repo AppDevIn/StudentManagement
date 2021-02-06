@@ -26,18 +26,12 @@ void ReadJson(const QString &path){
             student.address = obj["address"].toString().toStdString();
             student.email = obj["email"].toString().toStdString();
             student.tGroup = obj["tGroup"].toString().toStdString();
-            student.gpa = obj["tGroup"].toString().toDouble();
+            student.gpa = obj["gpa"].toString().toDouble();
 
-
-
-            cout << student.name << endl;
             Constant::trie.insert(student.id, student);
 
         }
 
-//        for(auto name: studentname){
-//            cout << name.toStdString() << endl;
-//        }
     }
 
 }

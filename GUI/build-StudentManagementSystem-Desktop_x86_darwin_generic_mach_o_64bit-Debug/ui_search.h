@@ -10,12 +10,15 @@
 #define UI_SEARCH_H
 
 #include <QtCore/QVariant>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -25,11 +28,12 @@ class Ui_Search
 {
 public:
     QWidget *centralwidget;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QLineEdit *lineEdit;
-    QListWidget *listWidget;
+    QTableWidget *tableWidget;
     QMenuBar *menubar;
+    QMenu *menuSearch;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *Search)
@@ -39,30 +43,37 @@ public:
         Search->resize(800, 600);
         centralwidget = new QWidget(Search);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(130, 50, 481, 381));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 10, 771, 501));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        lineEdit = new QLineEdit(widget);
+        lineEdit = new QLineEdit(layoutWidget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
 
         verticalLayout->addWidget(lineEdit);
 
-        listWidget = new QListWidget(widget);
-        listWidget->setObjectName(QString::fromUtf8("listWidget"));
+        tableWidget = new QTableWidget(layoutWidget);
+        if (tableWidget->columnCount() < 6)
+            tableWidget->setColumnCount(6);
+        tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
+        tableWidget->setColumnCount(6);
 
-        verticalLayout->addWidget(listWidget);
+        verticalLayout->addWidget(tableWidget);
 
         Search->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Search);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 800, 24));
+        menuSearch = new QMenu(menubar);
+        menuSearch->setObjectName(QString::fromUtf8("menuSearch"));
         Search->setMenuBar(menubar);
         statusbar = new QStatusBar(Search);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         Search->setStatusBar(statusbar);
+
+        menubar->addAction(menuSearch->menuAction());
 
         retranslateUi(Search);
 
@@ -72,6 +83,7 @@ public:
     void retranslateUi(QMainWindow *Search)
     {
         Search->setWindowTitle(QCoreApplication::translate("Search", "MainWindow", nullptr));
+        menuSearch->setTitle(QCoreApplication::translate("Search", "Search", nullptr));
     } // retranslateUi
 
 };
