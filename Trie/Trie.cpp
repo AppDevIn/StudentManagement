@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include "Trie.h"
 #include <iostream>
-#include <list>
+#include "../LinkedList/List.cpp"
 
 using namespace std; 
 
