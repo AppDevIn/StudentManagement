@@ -72,4 +72,6 @@ public:
 
 	// void replace(KeyType key, ItemType item);
 	// bool contains(KeyType key);
+
+	bool hasKey(string key);
 };

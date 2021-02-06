@@ -7,6 +7,7 @@
 using namespace std;
 
 Trie trie;
+Trie trieID;
 
 void menu();
 void menuSelection(int pick);
@@ -28,14 +29,16 @@ int main(int argc, char const *argv[])
     tempStudent.tGroup = "t01";
     tempStudent.gpa = 3.1;
     
-    trie.insert(tempStudent.id, tempStudent);
+    cout << (trie.insert(tempStudent.name, tempStudent) ? "The user was added" : "The user is not added") << endl;
+    trieID.insert(tempStudent.id, tempStudent);
 
     tempStudent.id = "123x";
     tempStudent.name = "runlin";
     tempStudent.email = "r@gmail.com";
     tempStudent.tGroup = "t01";
     tempStudent.gpa = 3.1;
-    trie.insert(tempStudent.id, tempStudent);
+    cout << (trie.insert(tempStudent.id, tempStudent) ? "The user was added" : "The user is not added") << endl;
+    trieID.insert(tempStudent.id, tempStudent);
 
     cout << "Welcome to Student Management System" << endl;
 
@@ -97,7 +100,7 @@ void menuSelection(int pick)
             cout << "Enter student ID: ";
             cin >> id;
             if(trie.hasKey(id)) {
-                cout << trie.get(id) << endl;
+                cout << trieID.get(id).name << endl;
             } else {
                 cout << "You have entered wrong student id" << endl;
             }

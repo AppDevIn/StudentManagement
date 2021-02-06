@@ -1,6 +1,6 @@
 #include<string>
 #include <list>
-#include "../Dictionary/Dictionary.h"
+#include "../Dictionary/Dictionary.cpp"
 // #include "../Models/Student.cpp"
 
 using namespace std; 
@@ -62,7 +62,7 @@ public:
     ~Trie();
 
 
-    void insert(KeyType key, ItemType value);
+    bool insert(KeyType key, ItemType value);
 
     string search(KeyType key);
     

@@ -263,7 +263,30 @@ void Dictionary::print(){
 
 }
 
+bool Dictionary::hasKey(string key){
 
+    //Get the hash value for the key
+    int hashValue = hash(key);
+
+    //Get the item based on the hashvalue
+    Node* node = items[hashValue];
+
+    //Check if the first item is not empty
+    if(node){
+        Node* current = node;
+        //Trasverse through the node the find the key
+        while(current){
+            //If you got the key return the item
+            if(current->key == key)
+                return true
+
+            current = current->next;
+        }
+
+    }
+
+    return false;
+}
 
 
 

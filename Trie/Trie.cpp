@@ -21,17 +21,17 @@ int Trie::getIndex(char c){
     return isalpha(c) ? tolower(c) - ('a' - 10) : c - '0';
 }
 
-void Trie::insert(string key, ItemType value){
+bool Trie::insert(string searchKey, ItemType value){
 
 
     //temp store the root value 
     TrieNode* node = root;
 
     //iteatate through each char of the key
-    for (int i = 0; i < key.length(); i++)
+    for (int i = 0; i < searchKey.length(); i++)
     {
         //Get the value of single lower case charcter 
-        int index = getIndex(key[i]);
+        int index = getIndex(searchKey[i]);
 
         // if the char in the node is false getNode
         if(!node->children[index])
@@ -42,11 +42,19 @@ void Trie::insert(string key, ItemType value){
 
     }
 
-    node->item.add(key, value);
-    node->key = key;
+    //Check if the value is added into the dictionary
+    if (node->item.add(value.id, value)) {
+        node->key = searchKey;
 
-    //Set the last node as end 
-    node->isEndOfWord = true;
+        //Set the last node as end 
+        node->isEndOfWord = true;
+
+        return true;
+    } else {
+        node = NULL;
+        return false;
+    }
+
 
 
 }
