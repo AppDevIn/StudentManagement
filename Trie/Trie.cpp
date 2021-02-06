@@ -113,32 +113,6 @@ ItemType Trie::get(string key){
     return (node != NULL && node->isEndOfWord) ? node->item : ItemType();
 }
 
-// string Trie::search(string key){
-    
-//     //temp store the root value 
-//     TrieNode* node = root;
-
-
-//         //iteatate through each char of the key
-//     for (int i = 0; i < key.length(); i++)
-//     {
-//         //Get the value of single lower case charcter 
-//         int index = getIndex(key[i]);;
-
-//         if(!node->children[index])
-//             return NULL;
-        
-//         //set temp root the next node 
-//         node = node->children[index];
-
-//     }
-
-
-//     return (node != NULL && node->isEndOfWord) ? node->item : "No value";
-
-
-// }
-
 // Returns true if root has no children, else false 
 bool Trie::isEmpty(TrieNode* node) 
 { 
