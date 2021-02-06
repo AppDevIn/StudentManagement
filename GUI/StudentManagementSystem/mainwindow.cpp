@@ -18,18 +18,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_insert_clicked()
 {
-    Student tempStudent;
-
-    tempStudent.id = "123x";
-    tempStudent.name = "Jeya";
-    tempStudent.email = "jeya@gmail.com";
-    tempStudent.tGroup = "t01";
-    tempStudent.gpa = 3.1;
-
-    Constant::trie.insert("123x", tempStudent);
-
-
-    std::cout << Constant::trie.get("123x").name << std::endl;
 
     insert = new Insert(this);
     insert->show();

@@ -15,6 +15,9 @@ public:
     explicit Search(QWidget *parent = nullptr);
     ~Search();
 
+private slots:
+    void on_lineEdit_textChanged(const QString &arg1);
+
 private:
     Ui::Search *ui;
 };

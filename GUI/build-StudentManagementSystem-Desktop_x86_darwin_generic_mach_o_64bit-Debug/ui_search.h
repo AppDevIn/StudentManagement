@@ -11,9 +11,12 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,8 +24,12 @@ QT_BEGIN_NAMESPACE
 class Ui_Search
 {
 public:
-    QMenuBar *menubar;
     QWidget *centralwidget;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QLineEdit *lineEdit;
+    QListWidget *listWidget;
+    QMenuBar *menubar;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *Search)
@@ -30,12 +37,29 @@ public:
         if (Search->objectName().isEmpty())
             Search->setObjectName(QString::fromUtf8("Search"));
         Search->resize(800, 600);
-        menubar = new QMenuBar(Search);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        Search->setMenuBar(menubar);
         centralwidget = new QWidget(Search);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        widget = new QWidget(centralwidget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(130, 50, 481, 381));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        lineEdit = new QLineEdit(widget);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+
+        verticalLayout->addWidget(lineEdit);
+
+        listWidget = new QListWidget(widget);
+        listWidget->setObjectName(QString::fromUtf8("listWidget"));
+
+        verticalLayout->addWidget(listWidget);
+
         Search->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(Search);
+        menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 800, 24));
+        Search->setMenuBar(menubar);
         statusbar = new QStatusBar(Search);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         Search->setStatusBar(statusbar);
