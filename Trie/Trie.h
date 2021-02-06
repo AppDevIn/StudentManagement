@@ -63,11 +63,11 @@ public:
 
     bool insert(KeyType key, ItemType value);
 
-    // bool update(KeyType key, ItemType value);
+    bool update(KeyType key, ItemType value);
 
     // string search(KeyType key);
     
-    ItemType get(KeyType key);
+    ItemType* get(KeyType key);
 
     bool remove(KeyType key);
     

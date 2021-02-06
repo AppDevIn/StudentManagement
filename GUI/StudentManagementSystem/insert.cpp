@@ -3,7 +3,7 @@
 #include "mainwindow.h"
 #include <iostream>
 #include "globals.h"
-
+#include "QMessageBox.h"
 
 
 
@@ -46,8 +46,18 @@ void Insert::on_btn_submit_clicked()
 
 
 
-    Constant::trie.insert(item.id, item);
-    std::cout << "Inserted id " << item.id << " with name: " << Constant::trie.get(item.id).name << std::endl;
+    if (Constant::trie.insert(item.id, item)){
+        std::cout << "Inserted id " << item.id << " with name: " << Constant::trie.get(item.id)->name << std::endl;
+        this->close();
+    } else {
+        QMessageBox messageBox(QMessageBox::Warning,
+        tr("Warning"),
+        tr("You have entered the same student ID"),
+        QMessageBox::Ok,
+        NULL);
+
+        messageBox.exec();
+    }
 
 
 

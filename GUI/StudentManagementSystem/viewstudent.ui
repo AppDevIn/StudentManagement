@@ -36,26 +36,34 @@
       <height>81</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="placeholderText">
+     <string>Student ID</string>
+    </property>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>80</x>
       <y>140</y>
-      <width>401</width>
-      <height>301</height>
+      <width>551</width>
+      <height>351</height>
      </rect>
     </property>
     <property name="title">
-     <string>GroupBox</string>
+     <string>Student Information</string>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>30</x>
        <y>40</y>
-       <width>351</width>
-       <height>231</height>
+       <width>501</width>
+       <height>291</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -75,13 +83,6 @@
       </item>
       <item>
        <widget class="QLabel" name="label_address">
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_email_2">
         <property name="text">
          <string>TextLabel</string>
         </property>
@@ -111,7 +112,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>

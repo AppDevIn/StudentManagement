@@ -49,7 +49,7 @@ public:
     QLabel *label_6;
     QLineEdit *lineEdit_class;
     QPushButton *btn_submit;
-    QWidget *widget;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
     QLineEdit *lineEdit_studentID;
@@ -65,7 +65,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(190, 40, 431, 421));
+        groupBox->setGeometry(QRect(200, 30, 431, 421));
         layoutWidget = new QWidget(groupBox);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(30, 100, 381, 51));
@@ -149,18 +149,18 @@ public:
         btn_submit = new QPushButton(groupBox);
         btn_submit->setObjectName(QString::fromUtf8("btn_submit"));
         btn_submit->setGeometry(QRect(80, 370, 261, 51));
-        widget = new QWidget(groupBox);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(30, 40, 381, 51));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget1 = new QWidget(groupBox);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(30, 40, 381, 51));
+        horizontalLayout = new QHBoxLayout(layoutWidget1);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget1);
         label->setObjectName(QString::fromUtf8("label"));
 
         horizontalLayout->addWidget(label);
 
-        lineEdit_studentID = new QLineEdit(widget);
+        lineEdit_studentID = new QLineEdit(layoutWidget1);
         lineEdit_studentID->setObjectName(QString::fromUtf8("lineEdit_studentID"));
 
         horizontalLayout->addWidget(lineEdit_studentID);
@@ -168,7 +168,7 @@ public:
         Insert->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Insert);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 800, 24));
         Insert->setMenuBar(menubar);
         statusbar = new QStatusBar(Insert);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

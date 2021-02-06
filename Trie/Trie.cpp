@@ -60,39 +60,39 @@ bool Trie::insert(string key, ItemType value){
 }
 
 
-// bool Trie::update(string key, ItemType value){
+bool Trie::update(string key, ItemType value){
 
 
-//     //temp store the root value 
-//     TrieNode* node = root;
+    //temp store the root value 
+    TrieNode* node = root;
     
-//     //iteatate through each char of the key
-//     for (int i = 0; i < key.length(); i++)
-//     {
-//         //Get the value of single lower case charcter 
-//         int index = getIndex(key[i]);
+    //iteatate through each char of the key
+    for (int i = 0; i < key.length(); i++)
+    {
+        //Get the value of single lower case charcter 
+        int index = getIndex(key[i]);
 
-//         // if the char in the node is false getNode
-//         if(!node->children[index])
-//             node->children[index] = getNode();
+        // if the char in the node is false getNode
+        if(!node->children[index])
+            node->children[index] = getNode();
         
-//         //set temp root the next node 
-//         node = node->children[index];
+        //set temp root the next node 
+        node = node->children[index];
 
-//     }
+    }
 
-//     node->key = key;
-//     node->item = value;
+    node->key = key;
+    node->item = value;
 
-//     //Set the last node as end 
-//     node->isEndOfWord = true;
-//     //Check if the value is added into the dictionary
-//     return true;
+    //Set the last node as end 
+    node->isEndOfWord = true;
+    //Check if the value is added into the dictionary
+    return true;
     
 
 
 
-// }
+}
 
 bool Trie::hasKey(string key){
 
@@ -124,7 +124,7 @@ bool Trie::hasKey(string key){
 }
 
 
-ItemType Trie::get(string key){
+ItemType* Trie::get(string key){
     
     //temp store the root value 
     TrieNode* node = root;
@@ -145,7 +145,7 @@ ItemType Trie::get(string key){
     }
 
 
-    return (node != NULL && node->isEndOfWord) ? node->item : ItemType();
+    return (node != NULL && node->isEndOfWord) ? &(node->item) : NULL;
 }
 
 // Returns true if root has no children, else false 

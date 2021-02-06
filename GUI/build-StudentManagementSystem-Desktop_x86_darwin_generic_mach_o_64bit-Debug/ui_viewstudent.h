@@ -30,12 +30,11 @@ public:
     QPushButton *btn_Search;
     QLineEdit *lineEdit_input;
     QGroupBox *groupBox;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QLabel *label_name;
     QLabel *label_email;
     QLabel *label_address;
-    QLabel *label_email_2;
     QLabel *label_gpa;
     QLabel *label_class;
     QMenuBar *menubar;
@@ -54,41 +53,39 @@ public:
         lineEdit_input = new QLineEdit(centralwidget);
         lineEdit_input->setObjectName(QString::fromUtf8("lineEdit_input"));
         lineEdit_input->setGeometry(QRect(80, 10, 421, 81));
+        QFont font;
+        font.setPointSize(22);
+        lineEdit_input->setFont(font);
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(80, 140, 401, 301));
-        widget = new QWidget(groupBox);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(30, 40, 351, 231));
-        verticalLayout = new QVBoxLayout(widget);
+        groupBox->setGeometry(QRect(80, 140, 551, 351));
+        layoutWidget = new QWidget(groupBox);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(30, 40, 501, 291));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        label_name = new QLabel(widget);
+        label_name = new QLabel(layoutWidget);
         label_name->setObjectName(QString::fromUtf8("label_name"));
 
         verticalLayout->addWidget(label_name);
 
-        label_email = new QLabel(widget);
+        label_email = new QLabel(layoutWidget);
         label_email->setObjectName(QString::fromUtf8("label_email"));
 
         verticalLayout->addWidget(label_email);
 
-        label_address = new QLabel(widget);
+        label_address = new QLabel(layoutWidget);
         label_address->setObjectName(QString::fromUtf8("label_address"));
 
         verticalLayout->addWidget(label_address);
 
-        label_email_2 = new QLabel(widget);
-        label_email_2->setObjectName(QString::fromUtf8("label_email_2"));
-
-        verticalLayout->addWidget(label_email_2);
-
-        label_gpa = new QLabel(widget);
+        label_gpa = new QLabel(layoutWidget);
         label_gpa->setObjectName(QString::fromUtf8("label_gpa"));
 
         verticalLayout->addWidget(label_gpa);
 
-        label_class = new QLabel(widget);
+        label_class = new QLabel(layoutWidget);
         label_class->setObjectName(QString::fromUtf8("label_class"));
 
         verticalLayout->addWidget(label_class);
@@ -96,7 +93,7 @@ public:
         ViewStudent->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ViewStudent);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 800, 24));
         ViewStudent->setMenuBar(menubar);
         statusbar = new QStatusBar(ViewStudent);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -111,11 +108,11 @@ public:
     {
         ViewStudent->setWindowTitle(QCoreApplication::translate("ViewStudent", "MainWindow", nullptr));
         btn_Search->setText(QCoreApplication::translate("ViewStudent", "Search", nullptr));
-        groupBox->setTitle(QCoreApplication::translate("ViewStudent", "GroupBox", nullptr));
+        lineEdit_input->setPlaceholderText(QCoreApplication::translate("ViewStudent", "Student ID", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("ViewStudent", "Student Information", nullptr));
         label_name->setText(QCoreApplication::translate("ViewStudent", "TextLabel", nullptr));
         label_email->setText(QCoreApplication::translate("ViewStudent", "TextLabel", nullptr));
         label_address->setText(QCoreApplication::translate("ViewStudent", "TextLabel", nullptr));
-        label_email_2->setText(QCoreApplication::translate("ViewStudent", "TextLabel", nullptr));
         label_gpa->setText(QCoreApplication::translate("ViewStudent", "TextLabel", nullptr));
         label_class->setText(QCoreApplication::translate("ViewStudent", "TextLabel", nullptr));
     } // retranslateUi

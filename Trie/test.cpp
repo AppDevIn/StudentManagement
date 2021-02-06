@@ -24,8 +24,8 @@ int main(int argc, const char **argv)
     cout << ":  Passed!" << endl;
 
     cout << "Test case 03: Getting the student deatails";
-    Student s = trie.get(tempStudent.id);
-    assert(tempStudent.name == s.name && s.id == tempStudent.id);
+    Student *s = trie.get(tempStudent.id);
+    assert(tempStudent.name == s->name && s->id == tempStudent.id);
     cout << ":  Passed!" << endl;
 
     cout << "Test case 04: Haskey ";
@@ -51,7 +51,7 @@ int main(int argc, const char **argv)
 
     trie.insert(deleteStudent.id, deleteStudent);
     cout << "Test case 07: Delete ID Student " << deleteStudent.id;
-    assert((trie.remove(deleteStudent.id) == true && trie.get(deleteStudent.id).id == "") == true);
+    assert((trie.remove(deleteStudent.id) == true && trie.get(deleteStudent.id) == NULL) == true);
     cout << ":  Passed!" << endl;
 
 

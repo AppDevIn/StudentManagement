@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
 
     tempStudent.id = "123x";
     tempStudent.name = "Jeya";
+    tempStudent.address = "Woodlands Avenue 04";
     tempStudent.email = "jeya@gmail.com";
     tempStudent.tGroup = "t01";
     tempStudent.gpa = 3.1;
@@ -62,7 +63,7 @@ int main(int argc, char *argv[])
 
 
 
-    std::cout << Constant::trie.get("123x").name << std::endl;
+    std::cout << Constant::trie.get("123x")->name << std::endl;
 
     return a.exec();
 }
