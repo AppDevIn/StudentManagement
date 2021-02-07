@@ -136,33 +136,4 @@ public:
      */
     void sort();
 
-
-    // void removeDuplicatesfromUnsorted();
-    
-    // void removeDuplicatesfromSorted();
-
-    // void deleteAllOccurrences(ValueType item);
-
-    // void mergeLLAt(List newList, int pos);
-
-    // void reverseAt(int start, int end);
-
-    // ValueType getMiddle();
-
-    // recursive function that
-
-    // returns the number of occurrences of item in the list
-
-    // int countR(ValueType item);
-    // prints all the items in the list
-    // void display();
-
-    // int rCount(Node *curr, ValueType item);
-
-
-
-    // reverses the list
-
-    // void reverse();
-
 };
