@@ -18,6 +18,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     search.cpp \
+    viewallstudent.cpp \
     viewstudent.cpp
 
 HEADERS += \
@@ -29,6 +30,7 @@ HEADERS += \
     insert.h \
     mainwindow.h \
     search.h \
+    viewallstudent.h \
     viewstudent.h
 
 FORMS += \
@@ -36,6 +38,7 @@ FORMS += \
     insert.ui \
     mainwindow.ui \
     search.ui \
+    viewallstudent.ui \
     viewstudent.ui
 
 TRANSLATIONS += \

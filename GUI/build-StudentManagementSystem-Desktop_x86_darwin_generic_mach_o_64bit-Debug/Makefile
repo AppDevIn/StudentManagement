@@ -61,10 +61,12 @@ SOURCES       = ../../Dictionary/Dictionary.cpp \
 		../StudentManagementSystem/main.cpp \
 		../StudentManagementSystem/mainwindow.cpp \
 		../StudentManagementSystem/search.cpp \
+		../StudentManagementSystem/viewallstudent.cpp \
 		../StudentManagementSystem/viewstudent.cpp moc_delete.cpp \
 		moc_insert.cpp \
 		moc_mainwindow.cpp \
 		moc_search.cpp \
+		moc_viewallstudent.cpp \
 		moc_viewstudent.cpp
 OBJECTS       = Dictionary.o \
 		List.o \
@@ -75,11 +77,13 @@ OBJECTS       = Dictionary.o \
 		main.o \
 		mainwindow.o \
 		search.o \
+		viewallstudent.o \
 		viewstudent.o \
 		moc_delete.o \
 		moc_insert.o \
 		moc_mainwindow.o \
 		moc_search.o \
+		moc_viewallstudent.o \
 		moc_viewstudent.o
 DIST          = /Users/jeyavishnu/Downloads/students.json \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/spec_pre.prf \
@@ -267,6 +271,7 @@ DIST          = /Users/jeyavishnu/Downloads/students.json \
 		../StudentManagementSystem/insert.h \
 		../StudentManagementSystem/mainwindow.h \
 		../StudentManagementSystem/search.h \
+		../StudentManagementSystem/viewallstudent.h \
 		../StudentManagementSystem/viewstudent.h ../../Dictionary/Dictionary.cpp \
 		../../LinkedList/List.cpp \
 		../../Trie/Trie.cpp \
@@ -276,6 +281,7 @@ DIST          = /Users/jeyavishnu/Downloads/students.json \
 		../StudentManagementSystem/main.cpp \
 		../StudentManagementSystem/mainwindow.cpp \
 		../StudentManagementSystem/search.cpp \
+		../StudentManagementSystem/viewallstudent.cpp \
 		../StudentManagementSystem/viewstudent.cpp
 QMAKE_TARGET  = StudentManagementSystem
 DESTDIR       = 
@@ -295,7 +301,7 @@ include /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-StudentManagementSystem.app/Contents/MacOS/StudentManagementSystem: ui_delete.h ui_insert.h ui_mainwindow.h ui_search.h ui_viewstudent.h $(OBJECTS)  
+StudentManagementSystem.app/Contents/MacOS/StudentManagementSystem: ui_delete.h ui_insert.h ui_mainwindow.h ui_search.h ui_viewallstudent.h ui_viewstudent.h $(OBJECTS)  
 	@test -d StudentManagementSystem.app/Contents/MacOS/ || mkdir -p StudentManagementSystem.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -692,9 +698,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Dictionary/Dictionary.h ../../LinkedList/List.h ../../Trie/Trie.h ../StudentManagementSystem/delete.h ../StudentManagementSystem/globals.h ../StudentManagementSystem/insert.h ../StudentManagementSystem/mainwindow.h ../StudentManagementSystem/search.h ../StudentManagementSystem/viewstudent.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Dictionary/Dictionary.cpp ../../LinkedList/List.cpp ../../Trie/Trie.cpp ../StudentManagementSystem/delete.cpp ../StudentManagementSystem/globals.cpp ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindow.cpp ../StudentManagementSystem/search.cpp ../StudentManagementSystem/viewstudent.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../StudentManagementSystem/delete.ui ../StudentManagementSystem/insert.ui ../StudentManagementSystem/mainwindow.ui ../StudentManagementSystem/search.ui ../StudentManagementSystem/viewstudent.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Dictionary/Dictionary.h ../../LinkedList/List.h ../../Trie/Trie.h ../StudentManagementSystem/delete.h ../StudentManagementSystem/globals.h ../StudentManagementSystem/insert.h ../StudentManagementSystem/mainwindow.h ../StudentManagementSystem/search.h ../StudentManagementSystem/viewallstudent.h ../StudentManagementSystem/viewstudent.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Dictionary/Dictionary.cpp ../../LinkedList/List.cpp ../../Trie/Trie.cpp ../StudentManagementSystem/delete.cpp ../StudentManagementSystem/globals.cpp ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindow.cpp ../StudentManagementSystem/search.cpp ../StudentManagementSystem/viewallstudent.cpp ../StudentManagementSystem/viewstudent.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../StudentManagementSystem/delete.ui ../StudentManagementSystem/insert.ui ../StudentManagementSystem/mainwindow.ui ../StudentManagementSystem/search.ui ../StudentManagementSystem/viewallstudent.ui ../StudentManagementSystem/viewstudent.ui $(DISTDIR)/
 	$(COPY_FILE) --parents StudentManagementSystem_en_BI.ts $(DISTDIR)/
 
 
@@ -730,14 +736,15 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o moc_predefs.h /Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_delete.cpp moc_insert.cpp moc_mainwindow.cpp moc_search.cpp moc_viewstudent.cpp
+compiler_moc_header_make_all: moc_delete.cpp moc_insert.cpp moc_mainwindow.cpp moc_search.cpp moc_viewallstudent.cpp moc_viewstudent.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_delete.cpp moc_insert.cpp moc_mainwindow.cpp moc_search.cpp moc_viewstudent.cpp
+	-$(DEL_FILE) moc_delete.cpp moc_insert.cpp moc_mainwindow.cpp moc_search.cpp moc_viewallstudent.cpp moc_viewstudent.cpp
 moc_delete.cpp: ../StudentManagementSystem/delete.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		ui_delete.h \
 		moc_predefs.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/moc
 	/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/jeyavishnu/personal/Current/StudentManagement/GUI/build-StudentManagementSystem-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/jeyavishnu/personal/Current/StudentManagement/GUI/StudentManagementSystem -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/jeyavishnu/Qt/5.15.2/clang_64/lib ../StudentManagementSystem/delete.h -o moc_delete.cpp
@@ -755,9 +762,11 @@ moc_mainwindow.cpp: ../StudentManagementSystem/mainwindow.h \
 		../StudentManagementSystem/insert.h \
 		../StudentManagementSystem/viewstudent.h \
 		../StudentManagementSystem/search.h \
+		ui_search.h \
 		../StudentManagementSystem/delete.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		ui_delete.h \
 		moc_predefs.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/moc
 	/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/jeyavishnu/personal/Current/StudentManagement/GUI/build-StudentManagementSystem-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/jeyavishnu/personal/Current/StudentManagement/GUI/StudentManagementSystem -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/jeyavishnu/Qt/5.15.2/clang_64/lib ../StudentManagementSystem/mainwindow.h -o moc_mainwindow.cpp
@@ -765,9 +774,21 @@ moc_mainwindow.cpp: ../StudentManagementSystem/mainwindow.h \
 moc_search.cpp: ../StudentManagementSystem/search.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		ui_search.h \
 		moc_predefs.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/moc
 	/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/jeyavishnu/personal/Current/StudentManagement/GUI/build-StudentManagementSystem-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/jeyavishnu/personal/Current/StudentManagement/GUI/StudentManagementSystem -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/jeyavishnu/Qt/5.15.2/clang_64/lib ../StudentManagementSystem/search.h -o moc_search.cpp
+
+moc_viewallstudent.cpp: ../StudentManagementSystem/viewallstudent.h \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../StudentManagementSystem/globals.h \
+		../../Trie/Trie.h \
+		../../LinkedList/List.h \
+		../../Models/Student.cpp \
+		moc_predefs.h \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/moc
+	/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/jeyavishnu/personal/Current/StudentManagement/GUI/build-StudentManagementSystem-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/Users/jeyavishnu/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/jeyavishnu/personal/Current/StudentManagement/GUI/StudentManagementSystem -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/jeyavishnu/Qt/5.15.2/clang_64/lib ../StudentManagementSystem/viewallstudent.h -o moc_viewallstudent.cpp
 
 moc_viewstudent.cpp: ../StudentManagementSystem/viewstudent.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
@@ -780,9 +801,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_delete.h ui_insert.h ui_mainwindow.h ui_search.h ui_viewstudent.h
+compiler_uic_make_all: ui_delete.h ui_insert.h ui_mainwindow.h ui_search.h ui_viewallstudent.h ui_viewstudent.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_delete.h ui_insert.h ui_mainwindow.h ui_search.h ui_viewstudent.h
+	-$(DEL_FILE) ui_delete.h ui_insert.h ui_mainwindow.h ui_search.h ui_viewallstudent.h ui_viewstudent.h
 ui_delete.h: ../StudentManagementSystem/delete.ui \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/uic
 	/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/uic ../StudentManagementSystem/delete.ui -o ui_delete.h
@@ -798,6 +819,10 @@ ui_mainwindow.h: ../StudentManagementSystem/mainwindow.ui \
 ui_search.h: ../StudentManagementSystem/search.ui \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/uic
 	/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/uic ../StudentManagementSystem/search.ui -o ui_search.h
+
+ui_viewallstudent.h: ../StudentManagementSystem/viewallstudent.ui \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/uic
+	/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/uic ../StudentManagementSystem/viewallstudent.ui -o ui_viewallstudent.h
 
 ui_viewstudent.h: ../StudentManagementSystem/viewstudent.ui \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/bin/uic
@@ -853,13 +878,16 @@ insert.o: ../StudentManagementSystem/insert.cpp ../StudentManagementSystem/inser
 		../StudentManagementSystem/mainwindow.h \
 		../StudentManagementSystem/viewstudent.h \
 		../StudentManagementSystem/search.h \
+		ui_search.h \
 		../StudentManagementSystem/delete.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		ui_delete.h \
 		../StudentManagementSystem/globals.h \
 		../../Trie/Trie.h \
 		../../LinkedList/List.h \
-		../../Models/Student.cpp
+		../../Models/Student.cpp \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o insert.o ../StudentManagementSystem/insert.cpp
 
 main.o: ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindow.h \
@@ -868,13 +896,11 @@ main.o: ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindo
 		../StudentManagementSystem/insert.h \
 		../StudentManagementSystem/viewstudent.h \
 		../StudentManagementSystem/search.h \
+		ui_search.h \
 		../StudentManagementSystem/delete.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
-		../StudentManagementSystem/globals.h \
-		../../Trie/Trie.h \
-		../../LinkedList/List.h \
-		../../Models/Student.cpp \
+		ui_delete.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QtCore \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qglobal.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qabstractanimation.h \
@@ -1059,7 +1085,11 @@ main.o: ../StudentManagementSystem/main.cpp ../StudentManagementSystem/mainwindo
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qxmlstream.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qtcoreversion.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
-		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../StudentManagementSystem/globals.h \
+		../../Trie/Trie.h \
+		../../LinkedList/List.h \
+		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../StudentManagementSystem/main.cpp
 
 mainwindow.o: ../StudentManagementSystem/mainwindow.cpp ../StudentManagementSystem/mainwindow.h \
@@ -1068,9 +1098,11 @@ mainwindow.o: ../StudentManagementSystem/mainwindow.cpp ../StudentManagementSyst
 		../StudentManagementSystem/insert.h \
 		../StudentManagementSystem/viewstudent.h \
 		../StudentManagementSystem/search.h \
+		ui_search.h \
 		../StudentManagementSystem/delete.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		ui_delete.h \
 		ui_mainwindow.h \
 		../StudentManagementSystem/globals.h \
 		../../Trie/Trie.h \
@@ -1088,6 +1120,16 @@ search.o: ../StudentManagementSystem/search.cpp ../StudentManagementSystem/searc
 		../../Models/Student.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o search.o ../StudentManagementSystem/search.cpp
 
+viewallstudent.o: ../StudentManagementSystem/viewallstudent.cpp ../StudentManagementSystem/viewallstudent.h \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../StudentManagementSystem/globals.h \
+		../../Trie/Trie.h \
+		../../LinkedList/List.h \
+		../../Models/Student.cpp \
+		ui_viewallstudent.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o viewallstudent.o ../StudentManagementSystem/viewallstudent.cpp
+
 viewstudent.o: ../StudentManagementSystem/viewstudent.cpp ../StudentManagementSystem/viewstudent.h \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -1095,7 +1137,8 @@ viewstudent.o: ../StudentManagementSystem/viewstudent.cpp ../StudentManagementSy
 		../StudentManagementSystem/globals.h \
 		../../Trie/Trie.h \
 		../../LinkedList/List.h \
-		../../Models/Student.cpp
+		../../Models/Student.cpp \
+		/Users/jeyavishnu/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o viewstudent.o ../StudentManagementSystem/viewstudent.cpp
 
 moc_delete.o: moc_delete.cpp 
@@ -1109,6 +1152,9 @@ moc_mainwindow.o: moc_mainwindow.cpp
 
 moc_search.o: moc_search.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_search.o moc_search.cpp
+
+moc_viewallstudent.o: moc_viewallstudent.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_viewallstudent.o moc_viewallstudent.cpp
 
 moc_viewstudent.o: moc_viewstudent.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_viewstudent.o moc_viewstudent.cpp

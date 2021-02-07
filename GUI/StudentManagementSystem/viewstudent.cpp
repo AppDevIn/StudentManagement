@@ -3,6 +3,7 @@
 #include "globals.h"
 #include "QMessageBox.h"
 
+
 ViewStudent::ViewStudent(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::ViewStudent)

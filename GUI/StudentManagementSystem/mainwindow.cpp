@@ -42,3 +42,9 @@ void MainWindow::on_insert_3_clicked()
     d = new Delete(this);
     d->show();
 }
+
+void MainWindow::on_insert_4_clicked()
+{
+    viewAllStudent = new ViewAllStudent();
+    viewAllStudent->show();
+}
