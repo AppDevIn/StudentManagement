@@ -1,8 +1,23 @@
+/**
+ * @brief The class that can be used for search. The keys used is a string
+ * with links between each of the node defined not by the idiviual charcaters of each key
+ * 
+ * @author Jeyavishnu S/O Subramaniam
+ * Group 02
+ * Student id: S10192836C
+ * 
+ * The remove  and startsWith function I would like to highlight 
+ * 
+ * 
+ */
+
+
+
 #pragma once
 #include<string>
 #include <list>
 #include "../Models/Student.cpp"
-#include "../LinkedList/List.cpp"
+#include "../LinkedList/List.h"
 
 using namespace std; 
   
@@ -10,12 +25,6 @@ const int ALPHABET_SIZE = 36;
 
 typedef string KeyType;
 typedef Student ItemType;
-
-
-/**
- * @brief 
- * 
- */
 
 class Trie
 {
@@ -124,7 +133,7 @@ class Trie
          * @brief Insert the value assoicating it with the key
          * 
          * @param key The key that the value will be recongised by.
-         * @param value 
+         * @param value The student object you wish to insert
          * @return true 
          * @return false 
          * @note Please ensure the key is unique
