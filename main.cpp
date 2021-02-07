@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
     tempStudent.gpa = 3.1;
     
     cout << (trie.insert(tempStudent.name, tempStudent) ? "The user was added" : "The user is not added") << endl;
-    trieID.insert(tempStudent.id, tempStudent);
+    trie.insert(tempStudent.id, tempStudent);
 
     tempStudent.id = "123x";
     tempStudent.name = "runlin";
@@ -38,7 +38,7 @@ int main(int argc, char const *argv[])
     tempStudent.tGroup = "t01";
     tempStudent.gpa = 3.1;
     cout << (trie.insert(tempStudent.id, tempStudent) ? "The user was added" : "The user is not added") << endl;
-    trieID.insert(tempStudent.id, tempStudent);
+    trie.insert(tempStudent.id, tempStudent);
 
     cout << "Welcome to Student Management System" << endl;
 
@@ -53,6 +53,7 @@ int main(int argc, char const *argv[])
         menuSelection(pick);
     }
 
+    
     return 0;
 }
 
@@ -72,8 +73,7 @@ void menuSelection(int pick)
 
     string id, name;
 
-    list<string> words;
-    list<string>::iterator it;
+    List words;
     Student tempStudent;
 
     switch (pick)
@@ -112,8 +112,11 @@ void menuSelection(int pick)
             
             cout << "\nStudent ID: " << endl;
 
-            for (it = words.begin(); it != words.end(); ++it)
-                cout << *it << endl;
+            words.begin();
+            for (int i = 0; i < words.getLength(); i++)
+            {
+                words.next();
+            }
 
             break;
         default:

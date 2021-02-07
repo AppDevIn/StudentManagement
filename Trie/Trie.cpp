@@ -56,41 +56,6 @@ bool Trie::insert(string key, ItemType value){
 
 }
 
-
-bool Trie::update(string key, ItemType value){
-
-
-    //temp store the root value 
-    TrieNode* node = root;
-    
-    //iteatate through each char of the key
-    for (int i = 0; i < key.length(); i++)
-    {
-        //Get the value of single lower case charcter 
-        int index = getIndex(key[i]);
-
-        // if the char in the node is false getNode
-        if(!node->children[index])
-            node->children[index] = getNode();
-        
-        //set temp root the next node 
-        node = node->children[index];
-
-    }
-
-    node->key = key;
-    node->item = value;
-
-    //Set the last node as end 
-    node->isEndOfWord = true;
-    //Check if the value is added into the dictionary
-    return true;
-    
-
-
-
-}
-
 bool Trie::hasKey(string key){
 
 
@@ -206,7 +171,7 @@ Trie::TrieNode* Trie::removeR(TrieNode* node, string key, int depth){
 
 }
 
-void Trie::startsWith(TrieNode* node, List* words){
+void Trie::startsWithRur(TrieNode* node, List* words){
 
 
     if(node->isEndOfWord){
@@ -216,7 +181,7 @@ void Trie::startsWith(TrieNode* node, List* words){
     for (int i = 0; i < ALPHABET_SIZE; i++) 
     {
         if(node->children[i]){
-            startsWith(node->children[i], words);
+            startsWithRur(node->children[i], words);
             
         }
     }
@@ -253,7 +218,7 @@ List Trie::startsWith(string prefix){
 
     }
 
-    startsWith(node, &words);
+    startsWithRur(node, &words);
 
     return words;
 
@@ -269,7 +234,7 @@ List Trie::getAllValues(){
     //temp store the root value 
     TrieNode* node = root;
 
-    startsWith(node, &words);
+    startsWithRur(node, &words);
 
     return words;
 
