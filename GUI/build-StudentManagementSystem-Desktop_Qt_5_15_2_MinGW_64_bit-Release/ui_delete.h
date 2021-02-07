@@ -1,21 +1,21 @@
 /********************************************************************************
-** Form generated from reading UI file 'searchstudentbyhashmap.ui'
+** Form generated from reading UI file 'delete.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_SEARCHSTUDENTBYHASHMAP_H
-#define UI_SEARCHSTUDENTBYHASHMAP_H
+#ifndef UI_DELETE_H
+#define UI_DELETE_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
@@ -23,50 +23,39 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_SearchStudentByHashmap
+class Ui_Delete
 {
 public:
     QWidget *centralwidget;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_2;
-    QLabel *label;
     QVBoxLayout *verticalLayout;
     QLineEdit *lineEdit;
     QTableWidget *tableWidget;
+    QPushButton *Delete_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
-    void setupUi(QMainWindow *SearchStudentByHashmap)
+    void setupUi(QMainWindow *Delete)
     {
-        if (SearchStudentByHashmap->objectName().isEmpty())
-            SearchStudentByHashmap->setObjectName(QString::fromUtf8("SearchStudentByHashmap"));
-        SearchStudentByHashmap->resize(1137, 731);
-        centralwidget = new QWidget(SearchStudentByHashmap);
+        if (Delete->objectName().isEmpty())
+            Delete->setObjectName(QString::fromUtf8("Delete"));
+        Delete->resize(1155, 735);
+        centralwidget = new QWidget(Delete);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(60, 0, 1021, 621));
+        layoutWidget->setGeometry(QRect(60, 10, 1021, 621));
         verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(layoutWidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        QFont font;
-        font.setPointSize(30);
-        font.setBold(true);
-        font.setWeight(75);
-        label->setFont(font);
-        label->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_2->addWidget(label);
-
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         lineEdit = new QLineEdit(layoutWidget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        QFont font1;
-        font1.setPointSize(22);
-        lineEdit->setFont(font1);
+        QFont font;
+        font.setPointSize(22);
+        lineEdit->setFont(font);
         lineEdit->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(lineEdit);
@@ -91,48 +80,56 @@ public:
 
         verticalLayout->addWidget(tableWidget);
 
+        Delete_2 = new QPushButton(layoutWidget);
+        Delete_2->setObjectName(QString::fromUtf8("Delete_2"));
+        QFont font1;
+        font1.setPointSize(20);
+        Delete_2->setFont(font1);
+
+        verticalLayout->addWidget(Delete_2);
+
 
         verticalLayout_2->addLayout(verticalLayout);
 
-        SearchStudentByHashmap->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(SearchStudentByHashmap);
+        Delete->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(Delete);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1137, 24));
-        SearchStudentByHashmap->setMenuBar(menubar);
-        statusbar = new QStatusBar(SearchStudentByHashmap);
+        menubar->setGeometry(QRect(0, 0, 1155, 24));
+        Delete->setMenuBar(menubar);
+        statusbar = new QStatusBar(Delete);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
-        SearchStudentByHashmap->setStatusBar(statusbar);
+        Delete->setStatusBar(statusbar);
 
-        retranslateUi(SearchStudentByHashmap);
+        retranslateUi(Delete);
 
-        QMetaObject::connectSlotsByName(SearchStudentByHashmap);
+        QMetaObject::connectSlotsByName(Delete);
     } // setupUi
 
-    void retranslateUi(QMainWindow *SearchStudentByHashmap)
+    void retranslateUi(QMainWindow *Delete)
     {
-        SearchStudentByHashmap->setWindowTitle(QCoreApplication::translate("SearchStudentByHashmap", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("SearchStudentByHashmap", "Prefix Search Using HashMap", nullptr));
-        lineEdit->setPlaceholderText(QCoreApplication::translate("SearchStudentByHashmap", "Student ID", nullptr));
+        Delete->setWindowTitle(QCoreApplication::translate("Delete", "MainWindow", nullptr));
+        lineEdit->setPlaceholderText(QCoreApplication::translate("Delete", "Student ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QCoreApplication::translate("SearchStudentByHashmap", "Name", nullptr));
+        ___qtablewidgetitem->setText(QCoreApplication::translate("Delete", "Name", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("SearchStudentByHashmap", "ID", nullptr));
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("Delete", "ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("SearchStudentByHashmap", "Email", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("Delete", "Email", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("SearchStudentByHashmap", "Address", nullptr));
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("Delete", "Address", nullptr));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("SearchStudentByHashmap", "GPA", nullptr));
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("Delete", "GPA", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("SearchStudentByHashmap", "Class", nullptr));
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("Delete", "Class", nullptr));
+        Delete_2->setText(QCoreApplication::translate("Delete", "Delete", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class SearchStudentByHashmap: public Ui_SearchStudentByHashmap {};
+    class Delete: public Ui_Delete {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_SEARCHSTUDENTBYHASHMAP_H
+#endif // UI_DELETE_H

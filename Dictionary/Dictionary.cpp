@@ -169,11 +169,9 @@ void PrintMatches(string str, regex reg){
 }
 
 
-List Dictionary::getByPrefix(KeyType key){
-    
+List Dictionary::getByPrefix(KeyType key){ 
 
     List list;
-    int count = 0;
     
     string temp = "";
     // create the string of all the ID
@@ -195,24 +193,10 @@ List Dictionary::getByPrefix(KeyType key){
 
 
     }
-
-
-
     return list;
     
 }
 
-void Dictionary::updateGPA(KeyType key, double newGPA, int numOfSem){
-    
-    int index = hash(key);
-    double accGPA;
-    
-    Node* node = items[index];
-    if (node) {
-        accGPA = (node -> item.gpa + newGPA) / numOfSem;
-        node -> item.gpa = accGPA;
-    }
-}
 
 void Dictionary::remove(KeyType key){
     //Compute the index using hash function

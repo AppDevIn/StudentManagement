@@ -1,3 +1,14 @@
+/**
+  @brief this class is use to construct the dicstionary for hashmap
+ * xiong run lin
+ * S10189595
+ * group 2
+ *
+ * speical feature:
+ *
+ * int hash(keyType key)
+ * List getByPrefix(KeyType key)
+ */
 #pragma once
 // #include "../Models/Student.cpp"
 #include "../LinkedList/List.h"
@@ -13,66 +24,116 @@ typedef Student ItemType;
 class Dictionary
 {
 private:
+
 	struct Node
 	{
-		KeyType	 key;   // search key
-		ItemType item;// data item
-		Node     *next;	// pointer pointing to next item with same search key
+        KeyType	 key;   /// search key
+        ItemType item; /// data item
+        Node     *next;	/// pointer pointing to next item with same search key
 	};
 
 	Node *items[MAX_SIZE];
-	int  size;			// number of items in the Dictionary
+    int  size;			/// number of items in the Dictionary
 
 public:
 
-	// constructor
+    /// constructor
 	Dictionary();
 
-	// destructor
+    /// destructor
 	~Dictionary();
 
 	int hash(KeyType key);
 
-	// add a new item with the specified key to the Dictionary
-	// pre : none
-	// post: new item is added to the Dictionary
-	//       size of Dictionary is increased by 1
+    /**
+     * @brief add a new item with a hashed key to the Dictionary
+     *
+     * pre: none
+     * post: new item being added to the Dictionary
+     *       size of Dictionary increased by 1
+     *
+     * @param newKey, student
+     * @returns ture if the node is successfully added
+     * @returns false if the node is not added
+     */
 	bool add(KeyType newKey, ItemType student);
-
-	// remove an item with the specified key in the Dictionary
-	// pre : key must exist in the Dictionary // post: item is removed from the Dictionary
-	//       size of Dictionary is decreased by 1
+    /**
+     * @brief remove item with the given key in the Dictionary
+     *
+     * pre: given key exist in the Dictionary
+     * post: item at given key is removed
+     *       size of Dictionary decreased by 1
+     *
+     * @param key
+     */
 	void remove(KeyType key);
 
-
-	// get an item with the specified key in the Dictionary (retrieve)
-	// pre : key must exist in the dictionary
-	// post: none
-	// return the item with the specified key from the Dictionary
+    /**
+     * @brief get item in the Dictionary with the given key
+     *
+     * pre: given key exist in the Dictionary
+     * post: none
+     *
+     * @param key
+     * @returns empty string if key does not exist in the Dictionary
+     * @returns item in the node of the given key in the Dictionary
+     */
 	ItemType get(KeyType key);
     
+    /**
+     * @brief search item in Dictionary with the given prefix key
+     *
+     * pre: Dictionary is not empty
+     * pre: given key exist in the Dictionary
+     * post: none
+     *
+     * @param key
+     * @returns list of all items in the Dictionary matching the prefix key
+     */
     List getByPrefix(KeyType key);
-    void updateGPA(KeyType key, double newGPA, int numOfSem);
 
-	// check if the Dictionary is empty
-	// pre : none
-	// post: none
-	// return true if the Dictionary is empty; otherwise returns false
+
+    /**
+     * @brief check if the Dictionary is empty
+     *
+     * pre: none
+     * post: none
+     *
+     * @param
+     * @returns ture if the Dictionary is empty
+     * @returns flase if the Dictionary is not empty
+     */
 	bool isEmpty();
 
-	// check the size of the Dictionary
-	// pre : none
-	// post: none
-	// return the number of items in the Dictionary
+    /**
+     * @brief get the length of the Dictionary
+     *
+     *pre: none
+     *post: none
+     *
+     * @returns the length of the Dictionary
+     */
 	int getLength();
 
-	//------------------- Other useful functions -----------------
-
-	// display the items in the Dictionary
+    /**
+     * @brief print all the items in the Dictionary
+     *
+     * pre: none
+     * post: none
+     *
+     * @param
+     */
 	void print();
 
-	// void replace(KeyType key, ItemType item);
-	// bool contains(KeyType key);
-
+    /**
+     * @brief check if the items in the Dictionary has a key
+     *
+     * pre: node is not empty
+     * post: none
+     *
+     * @param key
+     * @returns ture if the node contain the key
+     * @returns flase if the node dose not contain the given key
+     */
 	bool hasKey(string key);
 };
