@@ -33,6 +33,7 @@ public:
     QVBoxLayout *verticalLayout;
     QLineEdit *lineEdit;
     QTableWidget *tableWidget;
+    QLabel *label_time;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -94,6 +95,12 @@ public:
 
         verticalLayout_2->addLayout(verticalLayout);
 
+        label_time = new QLabel(centralwidget);
+        label_time->setObjectName(QString::fromUtf8("label_time"));
+        label_time->setGeometry(QRect(60, 630, 171, 21));
+        QFont font2;
+        font2.setPointSize(16);
+        label_time->setFont(font2);
         SearchStudentByHashmap->setCentralWidget(centralwidget);
         menubar = new QMenuBar(SearchStudentByHashmap);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -111,7 +118,7 @@ public:
     void retranslateUi(QMainWindow *SearchStudentByHashmap)
     {
         SearchStudentByHashmap->setWindowTitle(QCoreApplication::translate("SearchStudentByHashmap", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("SearchStudentByHashmap", "Prefix Search", nullptr));
+        label->setText(QCoreApplication::translate("SearchStudentByHashmap", "Prefix Search By HashMap", nullptr));
         lineEdit->setPlaceholderText(QCoreApplication::translate("SearchStudentByHashmap", "Student ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("SearchStudentByHashmap", "Name", nullptr));
@@ -125,6 +132,7 @@ public:
         ___qtablewidgetitem4->setText(QCoreApplication::translate("SearchStudentByHashmap", "GPA", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
         ___qtablewidgetitem5->setText(QCoreApplication::translate("SearchStudentByHashmap", "Class", nullptr));
+        label_time->setText(QCoreApplication::translate("SearchStudentByHashmap", "TextLabel", nullptr));
     } // retranslateUi
 
 };

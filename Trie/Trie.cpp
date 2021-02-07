@@ -231,6 +231,7 @@ void Trie::startsWith(TrieNode* node, List* words){
 
 List Trie::startsWith(string prefix){
 
+
     List words;
 
     //temp store the root value 

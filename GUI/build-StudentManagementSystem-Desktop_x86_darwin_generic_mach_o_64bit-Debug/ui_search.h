@@ -29,12 +29,13 @@ class Ui_Search
 {
 public:
     QWidget *centralwidget;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_2;
     QLabel *label;
     QVBoxLayout *verticalLayout;
     QLineEdit *lineEdit;
     QTableWidget *tableWidget;
+    QLabel *label_time;
     QMenuBar *menubar;
     QMenu *menuSearch;
     QStatusBar *statusbar;
@@ -46,13 +47,13 @@ public:
         Search->resize(1059, 775);
         centralwidget = new QWidget(Search);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(20, 10, 1021, 621));
-        verticalLayout_2 = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(20, 10, 1021, 621));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QString::fromUtf8("label"));
         QFont font;
         font.setPointSize(30);
@@ -65,7 +66,7 @@ public:
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        lineEdit = new QLineEdit(widget);
+        lineEdit = new QLineEdit(layoutWidget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         QFont font1;
         font1.setPointSize(22);
@@ -74,7 +75,7 @@ public:
 
         verticalLayout->addWidget(lineEdit);
 
-        tableWidget = new QTableWidget(widget);
+        tableWidget = new QTableWidget(layoutWidget);
         if (tableWidget->columnCount() < 6)
             tableWidget->setColumnCount(6);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
@@ -97,6 +98,12 @@ public:
 
         verticalLayout_2->addLayout(verticalLayout);
 
+        label_time = new QLabel(centralwidget);
+        label_time->setObjectName(QString::fromUtf8("label_time"));
+        label_time->setGeometry(QRect(20, 650, 171, 21));
+        QFont font2;
+        font2.setPointSize(16);
+        label_time->setFont(font2);
         Search->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Search);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -132,6 +139,7 @@ public:
         ___qtablewidgetitem4->setText(QCoreApplication::translate("Search", "GPA", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
         ___qtablewidgetitem5->setText(QCoreApplication::translate("Search", "Class", nullptr));
+        label_time->setText(QCoreApplication::translate("Search", "TextLabel", nullptr));
         menuSearch->setTitle(QCoreApplication::translate("Search", "Search", nullptr));
     } // retranslateUi
 

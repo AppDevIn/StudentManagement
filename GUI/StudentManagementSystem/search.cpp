@@ -1,5 +1,6 @@
 #include "search.h"
 #include "globals.h"
+#include <chrono>
 
 
 List searchedWords;
@@ -22,6 +23,7 @@ Search::~Search()
 void Search::on_lineEdit_textChanged(const QString &arg1)
 {
 
+        auto start = chrono::high_resolution_clock::now();
 
         searchedWords = Constant::trie.startsWith(arg1.toUtf8().constData());
 
@@ -73,6 +75,13 @@ void Search::on_lineEdit_textChanged(const QString &arg1)
                 ui->tableWidget->setItem(i,5, tGroup);
             }
         }
+
+        auto stop = chrono::high_resolution_clock::now();
+        auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+        double sec = double(duration.count())/100000;
+
+        ui->label_time->setText("ms: " + QString::fromStdString(to_string(sec)));
+        ui->label_time->setStyleSheet("QLabel { color : red; }");
 
 
 }

@@ -71,6 +71,8 @@ int Dictionary::hash(KeyType key){
 
 bool Dictionary::add(KeyType newKey, ItemType newItem){
     
+    
+    
     // Compute the index using hash function
     int hashValue = hash(newKey);
 
@@ -168,6 +170,7 @@ void PrintMatches(string str, regex reg){
 
 
 List Dictionary::getByPrefix(KeyType key){
+    
 
     List list;
     int count = 0;
@@ -192,6 +195,7 @@ List Dictionary::getByPrefix(KeyType key){
 
 
     }
+
 
 
     return list;
