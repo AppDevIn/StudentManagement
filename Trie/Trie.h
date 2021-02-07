@@ -155,6 +155,16 @@ class Trie
         ItemType* get(KeyType key);
 
         /**
+         * @brief Update the value (Student object) thats assoicated with the key
+         * @pre The key must exist in the Trie
+         * @post none
+         * @param key The key of the value that you want to get
+         * @return true if the value is updated
+         * @return false if the value not updated
+         */
+        bool update(KeyType key, ItemType value);
+
+        /**
          * @brief To remove key and the values assocuiated with the key
          * @pre The key must exist in the 
          * @post The value is removeed from Trie

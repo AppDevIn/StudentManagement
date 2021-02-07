@@ -14,126 +14,6 @@ Trie::Trie(){
 Trie::~Trie(){
 }
 
-//return 0-9 if numbers 10 to 36 if alphabets 
-int Trie::getIndex(char c){
-    return isalpha(c) ? tolower(c) - ('a' - 10) : c - '0';
-}
-
-bool Trie::insert(string key, ItemType value){
-
-
-    //temp store the root value 
-    TrieNode* node = root;
-
-    //Check if the keys exist
-    if(hasKey(key)){
-        return false;
-    }
-
-    //iteatate through each char of the key
-    for (int i = 0; i < key.length(); i++)
-    {
-        //Get the value of single lower case charcter 
-        int index = getIndex(key[i]);
-
-        // if the char in the node is false getNode
-        if(!node->children[index])
-            node->children[index] = getNode();
-        
-        //set temp root the next node 
-        node = node->children[index];
-
-    }
-
-    node->key = key;
-    node->item = value;
-
-    //Set the last node as end 
-    node->isEndOfWord = true;
-    //Check if the value is added into the dictionary
-    return true;
-    
-
-
-
-}
-
-bool Trie::hasKey(string key){
-
-
-    //temp store the root value 
-    TrieNode* node = root;
-
-    //iteatate through each char of the key
-    for (int i = 0; i < key.length(); i++)
-    {
-        //Get the value of single lower case charcter 
-        int index = getIndex(key[i]);;
-
-        if(!node->children[index])
-            return false;
-        
-        //set temp root the next node 
-        node = node->children[index];
-
-    }
-
-    //Check if the node is not NULL
-    //Check if it is the end of the word
-    //Return the bool based on this condition
-    return (node != NULL && node->isEndOfWord);
-
-
-
-
-}
-
-
-ItemType* Trie::get(string key){
-    
-    //temp store the root value 
-    TrieNode* node = root;
-
-        //iteatate through each char of the key
-    for (int i = 0; i < key.length(); i++)
-    {
-        //Get the value of single lower case charcter 
-        int index = getIndex(key[i]);;
-
-        // if the char in the node is false getNode
-        if(!node->children[index])
-            node->children[index] = getNode();
-        
-        //set temp root the next node 
-        node = node->children[index];
-
-    }
-
-
-    return (node != NULL && node->isEndOfWord) ? &(node->item) : NULL;
-}
-
-// Returns true if root has no children, else false 
-bool Trie::isEmpty(TrieNode* node) 
-{ 
-    for (int i = 0; i < ALPHABET_SIZE; i++) 
-        if (node->children[i]) 
-            return false; 
-    return true; 
-} 
-
-
-bool Trie::remove(string key){
-
-    //Check of the key exist
-    if (hasKey(key)) {
-        removeR(root, key, 0); //Call the recurive function
-        return true;
-    } else {
-        return false;
-    }
-}
-
 
 Trie::TrieNode* Trie::removeR(TrieNode* node, string key, int depth){
 
@@ -190,10 +70,157 @@ void Trie::startsWithRur(TrieNode* node, List* words){
         }
     }
     
+}
 
+//return 0-9 if numbers 10 to 36 if alphabets 
+int Trie::getIndex(char c){
+    return isalpha(c) ? tolower(c) - ('a' - 10) : c - '0';
+}
+
+// Returns true if root has no children, else false 
+bool Trie::isEmpty(TrieNode* node) 
+{ 
+    for (int i = 0; i < ALPHABET_SIZE; i++) 
+        if (node->children[i]) 
+            return false; 
+    return true; 
+} 
+
+
+
+
+bool Trie::insert(string key, ItemType value){
+
+
+    //temp store the root value 
+    TrieNode* node = root;
+
+    //Check if the keys exist
+    if(hasKey(key)){
+        return false;
+    }
+
+    //iteatate through each char of the key
+    for (int i = 0; i < key.length(); i++)
+    {
+        //Get the value of single lower case charcter 
+        int index = getIndex(key[i]);
+
+        // if the char in the node is false getNode
+        if(!node->children[index])
+            node->children[index] = getNode();
+        
+        //set temp root the next node 
+        node = node->children[index];
+
+    }
+
+    node->key = key;
+    node->item = value;
+
+    //Set the last node as end 
+    node->isEndOfWord = true;
+    //Check if the value is added into the dictionary
+    return true;
+    
 
 }
 
+
+ItemType* Trie::get(string key){
+    
+    //temp store the root value 
+    TrieNode* node = root;
+
+        //iteatate through each char of the key
+    for (int i = 0; i < key.length(); i++)
+    {
+        //Get the value of single lower case charcter 
+        int index = getIndex(key[i]);;
+
+        // if the char in the node is false getNode
+        if(!node->children[index])
+            node->children[index] = getNode();
+        
+        //set temp root the next node 
+        node = node->children[index];
+
+    }
+
+
+    return (node != NULL && node->isEndOfWord) ? &(node->item) : NULL;
+}
+
+bool Trie::update(KeyType key, ItemType value){
+    //temp store the root value 
+    TrieNode* node = root;
+
+    //Check if the keys exist
+    if(!hasKey(key)){
+        return false;
+    }
+
+    //iteatate through each char of the key
+    for (int i = 0; i < key.length(); i++)
+    {
+        //Get the value of single lower case charcter 
+        int index = getIndex(key[i]);
+
+        // if the char in the node is false getNode
+        if(!node->children[index])
+            node->children[index] = getNode();
+        
+        //set temp root the next node 
+        node = node->children[index];
+
+    }
+
+    node->key = key;
+    node->item = value;
+
+    //Set the last node as end 
+    node->isEndOfWord = true;
+    //Check if the value is added into the dictionary
+    return true;
+}
+
+bool Trie::remove(string key){
+
+    //Check of the key exist
+    if (hasKey(key)) {
+        removeR(root, key, 0); //Call the recurive function
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool Trie::hasKey(string key){
+
+
+    //temp store the root value 
+    TrieNode* node = root;
+
+    //iteatate through each char of the key
+    for (int i = 0; i < key.length(); i++)
+    {
+        //Get the value of single lower case charcter 
+        int index = getIndex(key[i]);;
+
+        if(!node->children[index])
+            return false;
+        
+        //set temp root the next node 
+        node = node->children[index];
+
+    }
+
+    //Check if the node is not NULL
+    //Check if it is the end of the word
+    //Return the bool based on this condition
+    return (node != NULL && node->isEndOfWord);
+
+}
 
 List Trie::startsWith(string prefix){
 
@@ -232,7 +259,6 @@ List Trie::startsWith(string prefix){
     
 
 }
-
 
 List Trie::getAllValues(){
     

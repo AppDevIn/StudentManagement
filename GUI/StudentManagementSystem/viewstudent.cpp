@@ -9,6 +9,7 @@ ViewStudent::ViewStudent(QWidget *parent) :
     ui(new Ui::ViewStudent)
 {
     ui->setupUi(this);
+    student = NULL;
 }
 
 ViewStudent::~ViewStudent()
@@ -51,7 +52,9 @@ void ViewStudent::on_pushButton_edit_clicked()
         student->name =  ui->lineEdit_name->text().toStdString();
         student->email =  ui->lineEdit_email->text().toStdString();
         student->gpa =  ui->lineEdit_gpa->text().toDouble();
-        student->address =  ui->lineEdit_email->text().toStdString();
+        student->address =  ui->lineEdit_address->text().toStdString();
         student->tGroup =  ui->lineEdit_class->text().toStdString();
     }
+
+    Constant::trie.update(student->id, *student);
 }
