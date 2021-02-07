@@ -217,6 +217,39 @@ List::Node* List::sortedList(Node* sorted, Node* newNode){
 
 }
 
+void List::reverseR()
+{
+    if(front == NULL){
+        rReverse(front);
+    }
+}
+
+List::Node *List::rReverse(Node *curr)
+{
+    if (curr->next == NULL)
+    { // if there is only one node
+
+        front = curr;
+
+        return curr;
+    }
+
+    Node *temp = rReverse(curr->next);
+
+    temp->next = curr;
+
+    curr->next = NULL;
+
+    return curr;
+}
+
+int List::getLength()
+{
+    return size;
+}
+
+
+
 // int List::countR(ValueType item)
 // {
 
@@ -252,31 +285,7 @@ List::Node* List::sortedList(Node* sorted, Node* newNode){
 //     front = prev;
 // }
 
-// void List::reverseR()
-// {
-//     if(front == NULL){
-//         rReverse(front);
-//     }
-// }
 
-// List::Node *List::rReverse(Node *curr)
-// {
-//     if (curr->next == NULL)
-//     { // if there is only one node
-
-//         front = curr;
-
-//         return curr;
-//     }
-
-//      Node *temp = rReverse(curr->next);
-
-//     temp->next = curr;
-
-//     curr->next = NULL;
-
-//     return curr;
-// }
 
 // void List::display()
 // {
@@ -376,11 +385,6 @@ List::Node* List::sortedList(Node* sorted, Node* newNode){
 //         size--;
 //     }
 // }
-
-int List::getLength()
-{
-    return size;
-}
 
 // void List::mergeLLAt(List newList, int pos)
 // {

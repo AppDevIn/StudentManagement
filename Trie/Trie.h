@@ -83,7 +83,7 @@ class Trie
          * to remove all the nodes in the children asoicated with 
          * the character in the key
          * @pre none 
-         * @post You will get a TrieNode
+         * @post You will get a TrieNode and the key will be removed
          * @param node the node that you want to remove the key from
          * @param key The key that you wish to remove from
          * @param depth How deep within the function trie are you in
