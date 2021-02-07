@@ -24,6 +24,13 @@ int main(int argc, const char **argv)
     deleteStudent.tGroup = "T01";
     deleteStudent.gpa = 3.1;
 
+    Student sortedStudent;
+    sortedStudent.id = "100x";
+    sortedStudent.name = "Zun Lin";
+    sortedStudent.email = "Run Lin@gmail.com";
+    sortedStudent.tGroup = "T01";
+    sortedStudent.gpa = 3.1;
+
     cout << "Test case 01: Inserting student with the id " << tempStudent.id;
     assert(trie.insert(tempStudent.id, tempStudent) == true);
     cout << ":  Passed!" << endl;
@@ -111,13 +118,22 @@ int main(int argc, const char **argv)
 
     trie.insert(tempStudent.id, tempStudent);
     trie.insert(deleteStudent.id, deleteStudent);
+    trie.insert(sortedStudent.id, sortedStudent);
 
 
     cout << "Test case 13: Get all values";
     list = trie.getAllValues();
-    assert(list.getLength() == 2 );
+    assert(list.getLength() == 3 );
     cout << ":  Passed!" << endl;
 
+
+    cout << "Test case 14: Sort all values";
+    list = trie.getAllValues();
+    list.sort();
+    assert((list.getLength() == 3 && list.get(0)->id == tempStudent.id));
+    cout << ":  Passed!" << endl;
+
+    
 
 
     return 0;

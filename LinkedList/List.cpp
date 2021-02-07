@@ -174,6 +174,49 @@ ValueType List::next(){
     
 }
 
+void List::sort(){
+    Node* result = NULL;
+    Node* current = front;
+    Node* next;
+
+    //Iterate through the loop
+    while (current != NULL)
+    {
+        next = current->next;
+
+        //Sort the linked list of the current element and store it
+        result = sortedList(result, current);
+
+        current = next;
+    }
+
+    //Return the sorted list
+    front = result;
+    
+
+}
+
+List::Node* List::sortedList(Node* sorted, Node* newNode){
+
+    //Temporary node to swap the elements 
+    Node* temp = new Node();
+    Node* current = temp;
+    temp->next = sorted;
+    
+    //Sort the list based on the specified order
+    while(current->next != NULL && current->next->item.name < newNode->item.name){
+      current = current->next;
+    }
+    
+    //Swap the elements
+    newNode->next = current->next;
+    current->next = newNode;
+    
+    //Return the sorted list.
+    return temp->next;
+
+}
+
 // int List::countR(ValueType item)
 // {
 

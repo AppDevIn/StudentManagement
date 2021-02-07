@@ -28,6 +28,8 @@ private:
     Node* getNode();
     Node* tempNode;
 
+    Node* sortedList(Node* sorted, Node* current);
+
 public:
     //constructor
 
@@ -80,6 +82,8 @@ public:
     void begin();
 
     ValueType next();
+
+    void sort();
 
 
     // void removeDuplicatesfromUnsorted();
