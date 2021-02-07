@@ -34,7 +34,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Prefix Search By HashMap</string>
+        <string>Prefix Search Using HashMap</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -98,24 +98,6 @@
       </layout>
      </item>
     </layout>
-   </widget>
-   <widget class="QLabel" name="label_time">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>630</y>
-      <width>171</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

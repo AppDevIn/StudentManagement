@@ -35,7 +35,6 @@ public:
     QVBoxLayout *verticalLayout;
     QLineEdit *lineEdit;
     QTableWidget *tableWidget;
-    QLabel *label_time;
     QMenuBar *menubar;
     QMenu *menuSearch;
     QStatusBar *statusbar;
@@ -98,12 +97,6 @@ public:
 
         verticalLayout_2->addLayout(verticalLayout);
 
-        label_time = new QLabel(centralwidget);
-        label_time->setObjectName(QString::fromUtf8("label_time"));
-        label_time->setGeometry(QRect(20, 650, 171, 21));
-        QFont font2;
-        font2.setPointSize(16);
-        label_time->setFont(font2);
         Search->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Search);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -125,7 +118,7 @@ public:
     void retranslateUi(QMainWindow *Search)
     {
         Search->setWindowTitle(QCoreApplication::translate("Search", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("Search", "Prefix Search", nullptr));
+        label->setText(QCoreApplication::translate("Search", "Prefix Search Using Trie", nullptr));
         lineEdit->setPlaceholderText(QCoreApplication::translate("Search", "Student ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("Search", "Name", nullptr));
@@ -139,7 +132,6 @@ public:
         ___qtablewidgetitem4->setText(QCoreApplication::translate("Search", "GPA", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
         ___qtablewidgetitem5->setText(QCoreApplication::translate("Search", "Class", nullptr));
-        label_time->setText(QCoreApplication::translate("Search", "TextLabel", nullptr));
         menuSearch->setTitle(QCoreApplication::translate("Search", "Search", nullptr));
     } // retranslateUi
 

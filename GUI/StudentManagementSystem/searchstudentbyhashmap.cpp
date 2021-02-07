@@ -1,7 +1,7 @@
 #include "searchstudentbyhashmap.h"
 #include "ui_searchstudentbyhashmap.h"
 #include "globals.h"
-#include <chrono>
+
 
 
 List dictWords;
@@ -21,7 +21,7 @@ SearchStudentByHashmap::~SearchStudentByHashmap()
 void SearchStudentByHashmap::on_lineEdit_textChanged(const QString &arg1)
 {
 
-    auto start = chrono::high_resolution_clock::now();
+
 
 
     dictWords = Constant::dictionary.getByPrefix(arg1.toUtf8().constData());
@@ -75,12 +75,7 @@ void SearchStudentByHashmap::on_lineEdit_textChanged(const QString &arg1)
         }
     }
 
-    auto stop = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
 
-    double sec = double(duration.count())/100000;
-    ui->label_time->setText("ms: " + QString::fromStdString(to_string(sec)));
-    ui->label_time->setStyleSheet("QLabel { color : red; }");
 
 
 
