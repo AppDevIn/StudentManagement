@@ -2,10 +2,10 @@
 
 List::List()
 {
-    size = 0;
+    size = 0; //Set the size to 0
 
-    front = new Node;
-    front->next = NULL;
+    front = new Node; //Create a new Node
+    front->next = NULL; //Set the next node to NULL
 }
 
 
@@ -180,17 +180,19 @@ ValueType* List::get(int index)
 int List::count(ValueType item)
 {
 
-    Node *curr = front;
-    int count = 0;
-    while (curr->next)
-    {
+    Node *curr = front; // Point the curr to front
+    int count = 0; // The value the will keep the track
 
+    //Iterate through the nodes
+    while (curr->next)
+    {   //Check if matches item
         if (item == curr->item)
-            count++;
+            count++; //Increment the value
+        //Set the curr the next pointor
         curr = curr->next;
     }
-
-    return count;
+    
+    return count; 
 }
 
 void List::reverseR()
@@ -211,18 +213,21 @@ void List::begin(){
 
 ValueType List::next(){
     
+    //Check if the node is empty
     if (!tempNode){
         return  ValueType();
     }
+    //Get the item
     ValueType v = tempNode->item;
-    if(front->next){
-        tempNode = tempNode->next;
-        return v;
+    //Check if the tempNode next is empty
+    if(tempNode->next){
+        tempNode = tempNode->next; // Set the next pointor
+        return v; //Return the value
     } else if (tempNode){
-        return v;
+        return v; //Return the value
     }
 
-    return ValueType();
+    return ValueType(); //Return a empty value
     
 }
 

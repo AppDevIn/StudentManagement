@@ -1,3 +1,15 @@
+/**
+ * @brief The class that can be used store the list of students 
+ * 
+ * @author Jeyavishnu S/O Subramaniam
+ * Group 02
+ * Student id: S10192836C
+ * 
+ * The highlight would be the sort() function 
+ * 
+ */
+
+
 #pragma once
 #include <iostream>
 #include "../Models/Student.cpp"
@@ -12,11 +24,8 @@ class List
 
 private:
     struct Node
-
     {
-
         ValueType item; // item
-
         Node *next; // pointer pointing to next node
     };
 
@@ -125,6 +134,7 @@ public:
      * @pre Must use begin() if reset is needed
      * @post the tempNode will be pointing to tempNde->next
      * @return ValueType Returns the value of the tempNode
+     * @warning The ValueType might be empty so check if the id is not empty ("")
      */
     ValueType next();
 
