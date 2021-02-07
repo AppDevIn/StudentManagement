@@ -34,7 +34,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Prefix Search</string>
+        <string>Prefix Search Using Trie</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

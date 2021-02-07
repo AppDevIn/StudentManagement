@@ -56,16 +56,16 @@ public:
         insert_2->setGeometry(QRect(200, 290, 391, 61));
         insert_3 = new QPushButton(centralwidget);
         insert_3->setObjectName(QString::fromUtf8("insert_3"));
-        insert_3->setGeometry(QRect(200, 370, 391, 61));
+        insert_3->setGeometry(QRect(200, 450, 391, 61));
         insert_4 = new QPushButton(centralwidget);
         insert_4->setObjectName(QString::fromUtf8("insert_4"));
-        insert_4->setGeometry(QRect(200, 450, 391, 61));
+        insert_4->setGeometry(QRect(200, 530, 391, 61));
         insert_5 = new QPushButton(centralwidget);
         insert_5->setObjectName(QString::fromUtf8("insert_5"));
         insert_5->setGeometry(QRect(200, 210, 391, 61));
         insert_6 = new QPushButton(centralwidget);
         insert_6->setObjectName(QString::fromUtf8("insert_6"));
-        insert_6->setGeometry(QRect(200, 530, 391, 61));
+        insert_6->setGeometry(QRect(200, 370, 391, 61));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -85,7 +85,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Welcome to Student Management System", nullptr));
         insert->setText(QCoreApplication::translate("MainWindow", "Insert", nullptr));
-        insert_2->setText(QCoreApplication::translate("MainWindow", "Search Student", nullptr));
+        insert_2->setText(QCoreApplication::translate("MainWindow", "Search Student using Trie", nullptr));
         insert_3->setText(QCoreApplication::translate("MainWindow", "Delete Student", nullptr));
         insert_4->setText(QCoreApplication::translate("MainWindow", "View All Student", nullptr));
         insert_5->setText(QCoreApplication::translate("MainWindow", "View/Edit Student", nullptr));

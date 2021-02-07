@@ -58,14 +58,14 @@
      </rect>
     </property>
     <property name="text">
-     <string>Search Student</string>
+     <string>Search Student using Trie</string>
     </property>
    </widget>
    <widget class="QPushButton" name="insert_3">
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>370</y>
+      <y>450</y>
       <width>391</width>
       <height>61</height>
      </rect>
@@ -78,7 +78,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>450</y>
+      <y>530</y>
       <width>391</width>
       <height>61</height>
      </rect>
@@ -104,7 +104,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>530</y>
+      <y>370</y>
       <width>391</width>
       <height>61</height>
      </rect>
