@@ -10,8 +10,11 @@
 
 Running on windows
 
+From cmd 
+
 ```cmd
-src\Deployment\StudentMangementSystem.exe
+src\Deployment\StudentManagementSystem.exe
 ```
 
 You will be running the exe file
+

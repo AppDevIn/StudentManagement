@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include "Trie/Trie.h"
+#include "Trie/Trie.cpp"
 
 
 using namespace std;

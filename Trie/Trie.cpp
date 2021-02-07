@@ -1,3 +1,16 @@
+/**
+ * @brief The class that can be used for search. The keys used is a string
+ * with links between each of the node defined not by the idiviual charcaters of each key
+ * 
+ * @author Jeyavishnu S/O Subramaniam
+ * Group 02
+ * Student id: S10192836C
+ * 
+ * The remove  and startsWith function I would like to highlight 
+ * 
+ * 
+ */
+
 #include<string>
 #include <stdio.h>
 #include <ctype.h>

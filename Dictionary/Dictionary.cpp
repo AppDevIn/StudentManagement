@@ -2,6 +2,18 @@
 #include <iostream>
 #include <regex>
 
+/**
+  @brief this class is use to construct the dicstionary for hashmap
+ * xiong run lin
+ * S10189595
+ * group 2
+ *
+ * speical feature:
+ *
+ * int hash(keyType key)
+ * List getByPrefix(KeyType key)
+ */
+
 
 Dictionary::Dictionary(){
     size = 0;

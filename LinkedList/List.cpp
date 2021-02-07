@@ -1,3 +1,14 @@
+/**
+ * @brief The class that can be used store the list of students 
+ * 
+ * @author Jeyavishnu S/O Subramaniam
+ * Group 02
+ * Student id: S10192836C
+ * 
+ * The highlight would be the sort() function 
+ * 
+ */
+
 #include "List.h" // header file
 
 List::List()
