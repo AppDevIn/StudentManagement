@@ -7,9 +7,6 @@
 
 using namespace std; 
 
-
-
-
 Trie::Trie(){
     root = getNode();
 }

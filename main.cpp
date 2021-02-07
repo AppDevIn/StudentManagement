@@ -7,7 +7,7 @@
 using namespace std;
 
 Trie trie;
-Trie trieID;
+
 
 void menu();
 void menuSelection(int pick);
@@ -100,7 +100,7 @@ void menuSelection(int pick)
             cout << "Enter student ID: ";
             cin >> id;
             if(trie.hasKey(id)) {
-                cout << trieID.get(id).name << endl;
+                cout << trie.get(id)->id << endl;
             } else {
                 cout << "You have entered wrong student id" << endl;
             }
