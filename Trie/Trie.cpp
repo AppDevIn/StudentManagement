@@ -14,6 +14,7 @@ Trie::Trie(){
 Trie::~Trie(){
 }
 
+//return 0-9 if numbers 10 to 36 if alphabets 
 int Trie::getIndex(char c){
     return isalpha(c) ? tolower(c) - ('a' - 10) : c - '0';
 }
@@ -24,6 +25,7 @@ bool Trie::insert(string key, ItemType value){
     //temp store the root value 
     TrieNode* node = root;
 
+    //Check if the keys exist
     if(hasKey(key)){
         return false;
     }
@@ -62,8 +64,7 @@ bool Trie::hasKey(string key){
     //temp store the root value 
     TrieNode* node = root;
 
-
-        //iteatate through each char of the key
+    //iteatate through each char of the key
     for (int i = 0; i < key.length(); i++)
     {
         //Get the value of single lower case charcter 
@@ -77,7 +78,9 @@ bool Trie::hasKey(string key){
 
     }
 
-
+    //Check if the node is not NULL
+    //Check if it is the end of the word
+    //Return the bool based on this condition
     return (node != NULL && node->isEndOfWord);
 
 
@@ -119,14 +122,18 @@ bool Trie::isEmpty(TrieNode* node)
     return true; 
 } 
 
+
 bool Trie::remove(string key){
+
+    //Check of the key exist
     if (hasKey(key)) {
-        removeR(root, key, 0);
+        removeR(root, key, 0); //Call the recurive function
         return true;
     } else {
         return false;
     }
 }
+
 
 Trie::TrieNode* Trie::removeR(TrieNode* node, string key, int depth){
 
@@ -139,13 +146,12 @@ Trie::TrieNode* Trie::removeR(TrieNode* node, string key, int depth){
     if(depth == key.size()){
 
         //Since the key won't be the end of the 
-        //world after being removed
+        //word after being removed
         if(node->isEndOfWord)
             node->isEndOfWord = false;
 
         //If is not a prefix of any other word
         if(isEmpty(node)){
-            // delete(node);
             node = NULL;
         }
         
@@ -160,28 +166,26 @@ Trie::TrieNode* Trie::removeR(TrieNode* node, string key, int depth){
 
     // If it doesn't have any child and is not the end a word
    if (isEmpty(node) && node->isEndOfWord == false) { 
-        // delete (node); 
         node = NULL; 
     } 
 
     return node;
 
-
-
-
 }
 
 void Trie::startsWithRur(TrieNode* node, List* words){
 
-
+    //Check if the node is at the end of the word
     if(node->isEndOfWord){
-        words->add(node->item);
+        words->add(node->item); //Add the word into the list
     }
 
+    //Loop through the children of the node
     for (int i = 0; i < ALPHABET_SIZE; i++) 
     {
+        //Chec if the node is empty
         if(node->children[i]){
-            startsWithRur(node->children[i], words);
+            startsWithRur(node->children[i], words); //Call the this function again 
             
         }
     }
@@ -194,16 +198,17 @@ void Trie::startsWithRur(TrieNode* node, List* words){
 List Trie::startsWith(string prefix){
 
 
-    List words;
+    List students; // List of students
 
     //temp store the root value 
     TrieNode* node = root;
 
+    //Check the prefix length and if the node is not null
     if(prefix.length() == 0 || !node){
-        return words;
+        return students;
     }
 
-    //iteatate through each char of the key
+    //iteatate through each char of the key to go the last possible node
     for (int i = 0; i < prefix.length(); i++)
     {
         //Get the value of single lower case charcter 
@@ -212,15 +217,17 @@ List Trie::startsWith(string prefix){
         //set temp root the next node 
         node = node->children[index];
 
+        //Check if the node is null value
         if(node == nullptr){
-            return words;
+            return students; //Return the list of students
         }
 
     }
+    
+    //Call the recusive function with refrence to the students list
+    startsWithRur(node, &students);
 
-    startsWithRur(node, &words);
-
-    return words;
+    return students; //Return the list of students 
 
     
 
@@ -229,16 +236,15 @@ List Trie::startsWith(string prefix){
 
 List Trie::getAllValues(){
     
-    List words;
+    List students; // List of students 
 
     //temp store the root value 
     TrieNode* node = root;
 
-    startsWithRur(node, &words);
+    //Call the recusive function with refrence to the students list
+    startsWithRur(node, &students);
 
-    return words;
-
-
+    return students; //Return the list of students 
 }
 
 
