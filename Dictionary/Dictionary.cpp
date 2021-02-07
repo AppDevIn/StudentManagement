@@ -71,30 +71,54 @@ int Dictionary::hash(KeyType key){
 
 bool Dictionary::add(KeyType newKey, ItemType newItem){
     
-    int index = hash(newKey);
-    Node* temp = new Node;
-    temp -> item = newItem;
-    temp -> next = NULL;
-    temp -> key = newKey;
+    // Compute the index using hash function
+    int hashValue = hash(newKey);
 
-    
-    if(items[index] == NULL){
-        items[index] = temp;
-    }
-    else{
-        if(temp -> key == items[index] -> key){
+    //Get the node from the items 
+    Node* node = items[hashValue];
+
+    //Create a new node
+    Node* newNode = new Node;
+
+    //Set Items and keys into the newNode
+    newNode->item = newItem;
+    newNode->key = newKey;
+    newNode->next = NULL;
+
+
+    // Check if thee if item in the node is empty
+    if(!node){
+        //Set list at index to point to new node 
+        items[hashValue] = newNode;
+
+    } else {
+        //Check if the first node key is the smae 
+        if(node->key == newNode->key){
             return false;
-        }
-        else{
-            while (temp -> next != NULL) {
-                items[index] = items[index] -> next;
+        } else { 
+
+            //Trasverse throught the linked list
+            while(node->next){
+                //Assign it to the next node to node 
+                node = node->next;
+                //Check if the node has the same key 
+                if(node->key == newNode->key){
+                    return false;
+                }
             }
         }
-        items[index] -> next = temp;
-        
+            
+
+        //Set the next to the new node 
+        node->next = newNode;
     }
+    
+    // Increase the size by 1
     size++;
+
+    // Return true  
     return true;
+
 }
 
 ItemType Dictionary::get(KeyType key){
@@ -146,37 +170,29 @@ void PrintMatches(string str, regex reg){
 List Dictionary::getByPrefix(KeyType key){
 
     List list;
+    int count = 0;
     
     string temp = "";
     // create the string of all the ID
+
     for (int i = 0; i < MAX_SIZE; i++) {
         Node* node = items[i];
         if (node != NULL) {
             
             while(node){
-                temp += node -> item.id + " ";
+                string s = node->item.id.substr(0, (key.length()));
+                if ( s == key){
+                    list.add(node->item);
+
+                }
+                
                 node = node->next;
             }
         }
-    }
-    
-    // regex expression
-    regex reg ("(" + key + "([^ ]+)?)");
-    
-    // This holds the first match
-    sregex_iterator currentMatch(temp.begin(),
-            temp.end(), reg);
-    
-    // Used to determine if there are any more matches
-    sregex_iterator lastMatch;
 
-    while(currentMatch != lastMatch){
-        Student tempStudent;
-        smatch match = *currentMatch;
-        tempStudent = get(match.str());
-        list.add(tempStudent);
-        currentMatch++;
+
     }
+
 
     return list;
     
