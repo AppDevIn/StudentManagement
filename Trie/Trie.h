@@ -74,6 +74,9 @@ public:
     bool hasKey(KeyType key);
 
     List startsWith(KeyType prefix);
+
+    List getAllValues();
+
 };
 
 

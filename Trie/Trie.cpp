@@ -264,7 +264,19 @@ List Trie::startsWith(string prefix){
 }
 
 
+List Trie::getAllValues(){
+    
+    List words;
 
+    //temp store the root value 
+    TrieNode* node = root;
+
+    startsWith(node, &words);
+
+    return words;
+
+
+}
 
 
 
