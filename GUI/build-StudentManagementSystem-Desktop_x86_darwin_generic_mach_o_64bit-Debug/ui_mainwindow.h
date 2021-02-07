@@ -88,7 +88,7 @@ public:
         insert_2->setText(QCoreApplication::translate("MainWindow", "Search Student", nullptr));
         insert_3->setText(QCoreApplication::translate("MainWindow", "Delete Student", nullptr));
         insert_4->setText(QCoreApplication::translate("MainWindow", "View All Student", nullptr));
-        insert_5->setText(QCoreApplication::translate("MainWindow", "View Student", nullptr));
+        insert_5->setText(QCoreApplication::translate("MainWindow", "View/Edit Student", nullptr));
         insert_6->setText(QCoreApplication::translate("MainWindow", "Search Student using Hashmap", nullptr));
     } // retranslateUi
 

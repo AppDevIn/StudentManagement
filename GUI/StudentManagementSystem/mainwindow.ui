@@ -97,7 +97,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>View Student</string>
+     <string>View/Edit Student</string>
     </property>
    </widget>
    <widget class="QPushButton" name="insert_6">

@@ -18,6 +18,8 @@ public:
 private slots:
     void on_btn_Search_clicked();
 
+    void on_pushButton_edit_clicked();
+
 private:
     Ui::ViewStudent *ui;
 };

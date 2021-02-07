@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>829</width>
+    <height>668</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -48,61 +48,109 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>140</y>
-      <width>551</width>
-      <height>351</height>
+      <x>60</x>
+      <y>130</y>
+      <width>711</width>
+      <height>461</height>
      </rect>
     </property>
     <property name="title">
      <string>Student Information</string>
     </property>
-    <widget class="QWidget" name="layoutWidget">
+    <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>20</x>
        <y>40</y>
-       <width>501</width>
-       <height>291</height>
+       <width>681</width>
+       <height>361</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="label_name">
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label_name">
+          <property name="text">
+           <string>Name: </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_name"/>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QLabel" name="label_email">
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="label_name_4">
+          <property name="text">
+           <string>Email: </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_email"/>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QLabel" name="label_address">
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <widget class="QLabel" name="label_name_7">
+          <property name="text">
+           <string>Address: </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_address"/>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QLabel" name="label_gpa">
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLabel" name="label_name_5">
+          <property name="text">
+           <string>GPA: </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_gpa"/>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QLabel" name="label_class">
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QLabel" name="label_name_6">
+          <property name="text">
+           <string>Class&quot; </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_class"/>
+        </item>
+       </layout>
       </item>
      </layout>
+    </widget>
+    <widget class="QPushButton" name="pushButton_edit">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>410</y>
+       <width>131</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Edit</string>
+     </property>
     </widget>
    </widget>
   </widget>
@@ -111,7 +159,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>829</width>
      <height>24</height>
     </rect>
    </property>

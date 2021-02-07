@@ -3,7 +3,7 @@
 #include "globals.h"
 #include "QMessageBox.h"
 
-
+Student* student = NULL;
 ViewStudent::ViewStudent(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::ViewStudent)
@@ -23,14 +23,15 @@ void ViewStudent::on_btn_Search_clicked()
 
     cout << "ID searched: " << id << endl;
 
-    Student* student = Constant::trie.get(id);
+     student = Constant::trie.get(id);
 
     if(student != NULL){
-        ui->label_name->setText(QString::fromStdString(student->name));
-        ui->label_email->setText(QString::fromStdString(student->email));
-        ui->label_gpa->setText(QString::number(student->gpa));
-        ui->label_address->setText(QString::fromStdString(student->address));
-        ui->label_class->setText(QString::fromStdString(student->tGroup));
+
+        ui->lineEdit_name->setText(QString::fromStdString(student->name));
+        ui->lineEdit_email->setText(QString::fromStdString(student->email));
+        ui->lineEdit_gpa->setText(QString::number(student->gpa));
+        ui->lineEdit_address->setText(QString::fromStdString(student->address));
+        ui->lineEdit_class->setText(QString::fromStdString(student->tGroup));
 
 
     } else {
@@ -41,5 +42,16 @@ void ViewStudent::on_btn_Search_clicked()
         NULL);
 
         messageBox.exec();
+    }
+}
+
+void ViewStudent::on_pushButton_edit_clicked()
+{
+    if (student){
+        student->name =  ui->lineEdit_name->text().toStdString();
+        student->email =  ui->lineEdit_email->text().toStdString();
+        student->gpa =  ui->lineEdit_gpa->text().toDouble();
+        student->address =  ui->lineEdit_email->text().toStdString();
+        student->tGroup =  ui->lineEdit_class->text().toStdString();
     }
 }

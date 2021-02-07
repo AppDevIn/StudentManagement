@@ -28,7 +28,7 @@ private:
 
 
         TrieNode(){
-            bool isEndOfWord = false; 
+            isEndOfWord = false;
         }
     }; 
 
