@@ -48,3 +48,9 @@ void MainWindow::on_insert_4_clicked()
     viewAllStudent = new ViewAllStudent();
     viewAllStudent->show();
 }
+
+void MainWindow::on_insert_6_clicked()
+{
+    searchHaspmap = new SearchStudentByHashmap();
+    searchHaspmap->show();
+}

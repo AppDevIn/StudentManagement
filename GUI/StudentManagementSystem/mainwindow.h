@@ -7,6 +7,7 @@
 #include "search.h"
 #include "delete.h"
 #include "viewallstudent.h"
+#include "searchstudentbyhashmap.h"
 
 
 
@@ -35,6 +36,8 @@ private slots:
 
     void on_insert_4_clicked();
 
+    void on_insert_6_clicked();
+
 private:
     Ui::MainWindow *ui;
     Insert *insert;
@@ -42,6 +45,7 @@ private:
     Search *search;
     Delete *d;
     ViewAllStudent *viewAllStudent;
+    SearchStudentByHashmap *searchHaspmap;
 
 };
 #endif // MAINWINDOW_H

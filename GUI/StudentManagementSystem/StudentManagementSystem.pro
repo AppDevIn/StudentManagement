@@ -18,6 +18,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     search.cpp \
+    searchstudentbyhashmap.cpp \
     viewallstudent.cpp \
     viewstudent.cpp
 
@@ -30,6 +31,7 @@ HEADERS += \
     insert.h \
     mainwindow.h \
     search.h \
+    searchstudentbyhashmap.h \
     viewallstudent.h \
     viewstudent.h
 
@@ -38,6 +40,7 @@ FORMS += \
     insert.ui \
     mainwindow.ui \
     search.ui \
+    searchstudentbyhashmap.ui \
     viewallstudent.ui \
     viewstudent.ui
 

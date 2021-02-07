@@ -30,6 +30,7 @@ public:
     QPushButton *insert_3;
     QPushButton *insert_4;
     QPushButton *insert_5;
+    QPushButton *insert_6;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -37,12 +38,12 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(802, 725);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(180, 40, 431, 51));
+        label->setGeometry(QRect(10, 30, 781, 51));
         QFont font;
         font.setPointSize(20);
         label->setFont(font);
@@ -62,10 +63,13 @@ public:
         insert_5 = new QPushButton(centralwidget);
         insert_5->setObjectName(QString::fromUtf8("insert_5"));
         insert_5->setGeometry(QRect(200, 210, 391, 61));
+        insert_6 = new QPushButton(centralwidget);
+        insert_6->setObjectName(QString::fromUtf8("insert_6"));
+        insert_6->setGeometry(QRect(200, 530, 391, 61));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 802, 24));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -85,6 +89,7 @@ public:
         insert_3->setText(QCoreApplication::translate("MainWindow", "Delete Student", nullptr));
         insert_4->setText(QCoreApplication::translate("MainWindow", "View All Student", nullptr));
         insert_5->setText(QCoreApplication::translate("MainWindow", "View Student", nullptr));
+        insert_6->setText(QCoreApplication::translate("MainWindow", "Search Student using Hashmap", nullptr));
     } // retranslateUi
 
 };

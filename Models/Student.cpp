@@ -1,6 +1,11 @@
+#pragma once
 #include <iostream>
 #include <string>
 using namespace std;
+
+
+//definitions
+
 
 struct Student {
 
@@ -22,4 +27,5 @@ struct Student {
         return s.id == this->id;
     }
 };
+
 

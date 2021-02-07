@@ -29,6 +29,9 @@ void ReadJson(const QString &path){
             student.gpa = obj["gpa"].toString().toDouble();
 
             Constant::trie.insert(student.id, student);
+            Constant::dictionary.add(student.id, student);
+
+
 
         }
 
@@ -43,27 +46,10 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    Student tempStudent;
-
-
-    tempStudent.id = "123x";
-    tempStudent.name = "Jeya";
-    tempStudent.address = "Woodlands Avenue 04";
-    tempStudent.email = "jeya@gmail.com";
-    tempStudent.tGroup = "t01";
-    tempStudent.gpa = 3.1;
-
-    Constant::trie.insert("123x", tempStudent);
-
     QString path = qApp -> applicationDirPath() + "/students.json";
 
     ReadJson(path);
 
-
-
-
-
-    std::cout << Constant::trie.get("123x")->name << std::endl;
 
     return a.exec();
 }

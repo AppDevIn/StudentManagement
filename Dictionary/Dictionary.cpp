@@ -125,25 +125,27 @@ ItemType Dictionary::get(KeyType key){
 
 }
 
-//void PrintMatches(string str, regex reg){
-//
-//    // This holds the first match
-//    sregex_iterator currentMatch(str.begin(),
-//            str.end(), reg);
-//
-//    // Used to determine if there are any more matches
-//    sregex_iterator lastMatch;
-//
-//    // While the current match doesn't equal the last
-//    while(currentMatch != lastMatch){
-//        smatch match = *currentMatch;
-//        cout << match.str() << "\n";
-//        currentMatch++;
-//    }
-//}
+void PrintMatches(string str, regex reg){
+
+   // This holds the first match
+   sregex_iterator currentMatch(str.begin(),
+           str.end(), reg);
+
+   // Used to determine if there are any more matches
+   sregex_iterator lastMatch;
+
+   // While the current match doesn't equal the last
+   while(currentMatch != lastMatch){
+       smatch match = *currentMatch;
+       cout << match.str() << "\n";
+       currentMatch++;
+   }
+}
 
 
-void Dictionary::getByPrefix(KeyType key){
+List Dictionary::getByPrefix(KeyType key){
+
+    List list;
     
     string temp = "";
     // create the string of all the ID
@@ -172,9 +174,11 @@ void Dictionary::getByPrefix(KeyType key){
         Student tempStudent;
         smatch match = *currentMatch;
         tempStudent = get(match.str());
-        cout << tempStudent.id << " " << tempStudent.name << endl;
+        list.add(tempStudent);
         currentMatch++;
     }
+
+    return list;
     
 }
 

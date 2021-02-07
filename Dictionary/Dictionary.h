@@ -1,5 +1,6 @@
 #pragma once
-#include "../Models/Student.cpp"
+// #include "../Models/Student.cpp"
+#include "../LinkedList/List.h"
 #include <string>
 #include <iostream>
 using namespace std;
@@ -50,7 +51,7 @@ public:
 	// return the item with the specified key from the Dictionary
 	ItemType get(KeyType key);
     
-    void getByPrefix(KeyType key);
+    List getByPrefix(KeyType key);
     void updateGPA(KeyType key, double newGPA, int numOfSem);
 
 	// check if the Dictionary is empty
