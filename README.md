@@ -6,8 +6,6 @@
 
 # Installation
 
-------
-
 Running on windows
 
 From cmd 
